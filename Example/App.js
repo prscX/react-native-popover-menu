@@ -45,7 +45,13 @@ export default class App extends Component<{}> {
           label: "Instagram",
           icon: resolveAssetSource(instagram)
         }
-      ]
+      ],
+      onDone: (selection) => {
+        console.log('selected item index: ' + selection)
+      },
+      onCancel: () => {
+        console.log('popover canceled')
+      }
     });
   }
 

@@ -12,7 +12,7 @@
 RCT_EXPORT_MODULE()
 
 
-RCT_EXPORT_METHOD(Show:(nonnull NSNumber *)view props:(nonnull NSDictionary *)props) {
+RCT_EXPORT_METHOD(Show:(nonnull NSNumber *)view props:(nonnull NSDictionary *)props onDone:(RCTResponseSenderBlock)onDone onCancel:(RCTResponseSenderBlock)onCancel) {
     UIViewController *vc = [UIApplication sharedApplication].delegate.window.rootViewController;
 
     UIView *target = [self.bridge.uiManager viewForReactTag: view];
@@ -49,13 +49,13 @@ RCT_EXPORT_METHOD(Show:(nonnull NSNumber *)view props:(nonnull NSDictionary *)pr
               title: title
           menuArray: menuTitles
  menuImageNameArray: menuIcons
-      perferedWidth: 0
-          rowHeight: 0
+      perferedWidth: [perferedWidth longValue]
+          rowHeight: [rowHeight longValue]
           tintColor:[UIColor clearColor]
           doneBlock:^(NSInteger selectedIndex) {
-
-          } cancelBlock:^{
-
+              onDone(@[[NSNumber numberWithLong: selectedIndex]]);
+          } cancelBlock:^() {
+              onCancel(@[]);
           }];
     
 //    [FTPopMenu showFTMenuForViewController: vc fromView: target menuArray:menus doneBlock:^(NSInteger selectedIndex) {

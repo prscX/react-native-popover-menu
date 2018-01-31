@@ -7,7 +7,16 @@ const { RNPopoverMenu } = NativeModules;
 
 class PopoverMenu extends Component {
     static Show (ref, props) {
-        RNPopoverMenu.Show(findNodeHandle(ref), {...props})
+        RNPopoverMenu.Show(
+            findNodeHandle(ref),
+            {...props},
+            (selection) => {
+                props.onDone && props.onDone(selection)
+            },
+            () => {
+                props.onCancel && props.onCancel()
+            }
+        )
     }
 
     componentDidMount () {
@@ -36,14 +45,3 @@ PopoverMenu.defaultProps = {
 }
 
 export default PopoverMenu
-
-// Props
-// - Title
-// - TintColor
-// - PerferedWidth
-// - RowHeight
-// - menus: {
-//     label, icon
-// }
-// - onDone
-// - onCancel
