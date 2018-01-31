@@ -1,0 +1,17 @@
+
+{
+  "name": "react-native-popover-menu",
+  "version": "0.0.1",
+  "description": "React Native: Native Popover Menu",
+  "main": "RNPopoverMenu.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native"
+  ],
+  "author": "Pranav Raj Singh Chauhan",
+  "license": "MIT",
+  "devDependencies": {},
+  "peerDependencies": {}
+}
