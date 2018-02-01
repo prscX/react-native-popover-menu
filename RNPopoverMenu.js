@@ -7,6 +7,12 @@ const { RNPopoverMenu } = NativeModules;
 
 class PopoverMenu extends Component {
     static Show (ref, props) {
+        if (props.title === undefined) props.title = ''
+        if (props.tintColor === undefined) props.tintColor = ''
+        if (props.perferedWidth === undefined) props.perferedWidth = 0
+        if (props.rowHeight === undefined) props.rowHeight = 0
+        if (props.menus === undefined) props.menus = []
+
         RNPopoverMenu.Show(
             findNodeHandle(ref),
             {...props},

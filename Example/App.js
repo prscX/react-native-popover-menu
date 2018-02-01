@@ -30,43 +30,55 @@ export default class App extends Component<{}> {
       title: "",
       menus: [
         {
-          label: "Facebook",
-          icon: resolveAssetSource(facebook)
+          label: "Editing",
+          menus: [
+            {
+              label: "Copy",
+              icon: resolveAssetSource(facebook)
+            },
+            {
+              label: "Paste",
+              icon: resolveAssetSource(twitter)
+            }
+          ]
         },
         {
-          label: "Twitter",
-          icon: resolveAssetSource(twitter)
+          label: "Other",
+          menus: [
+            {
+              label: "Share",
+              icon: resolveAssetSource(instagram)
+            }
+          ]
         },
         {
-          label: "Google",
-          icon: resolveAssetSource(google)
-        },
-        {
-          label: "Instagram",
-          icon: resolveAssetSource(instagram)
+          label: "",
+          menus: [
+            {
+              label: "Share me please"
+            }
+          ]
         }
       ],
-      onDone: (selection) => {
-        console.log('selected item index: ' + selection)
+      onDone: selection => {
+        console.log("selected item index: " + selection);
       },
       onCancel: () => {
-        console.log('popover canceled')
+        console.log("popover canceled");
       }
     });
   }
 
   render() {
-    // return <View contentContainerStyle={styles.container}>
         return <ImageBackground source={require("./assets/dark.jpg")} style={styles.backgroundImage}>
           <TouchableHighlight ref={ref => {
               this.ref = ref;
             }} onPress={() => {
               this._onPress();
             }}>
-            <Text>{"Popover"}</Text>
+            <Text style={styles.textStyle}>{"Popover"}</Text>
           </TouchableHighlight>
         </ImageBackground>
-      // </View>;
   }
 }
 
@@ -83,5 +95,8 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
     justifyContent: "center",
     alignItems: "center"
+  },
+  textStyle: {
+    color: '#FFFFFF'
   }
 });
