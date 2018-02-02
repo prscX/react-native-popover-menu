@@ -19,10 +19,10 @@ import RNPopoverMenu from 'react-native-popover-menu'
 import resolveAssetSource from "react-native/Libraries/Image/resolveAssetSource";
 
 
-const facebook = require('./assets/facebook.png')
-const google = require('./assets/google.png')
-const twitter = require('./assets/twitter.png')
-const instagram = require('./assets/instagram.png')
+const copy = require('./assets/copy.png')
+const paste = require('./assets/paste.png')
+const share = require('./assets/share.png')
+
 
 export default class App extends Component<{}> {
   _onPress = () => {
@@ -34,11 +34,11 @@ export default class App extends Component<{}> {
           menus: [
             {
               label: "Copy",
-              icon: resolveAssetSource(facebook)
+              icon: resolveAssetSource(copy)
             },
             {
               label: "Paste",
-              icon: resolveAssetSource(twitter)
+              icon: resolveAssetSource(paste)
             }
           ]
         },
@@ -47,7 +47,7 @@ export default class App extends Component<{}> {
           menus: [
             {
               label: "Share",
-              icon: resolveAssetSource(instagram)
+              icon: resolveAssetSource(share)
             }
           ]
         },

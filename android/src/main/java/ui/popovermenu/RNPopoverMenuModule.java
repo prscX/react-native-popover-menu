@@ -9,7 +9,12 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.DrawableContainer;
 import android.support.annotation.DrawableRes;
+import android.support.v7.widget.AppCompatDrawableManager;
+import android.support.v7.widget.AppCompatImageView;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -74,11 +79,11 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
 
           ReadableMap menu = menus.getMap(index);
 
-          if (!menu.isNull("label")) {
+          if (menu.hasKey("label") && !menu.isNull("label")) {
             ((SectionHolder) o).setTitle(menu.getString("label"));
           }
 
-          if (!menu.isNull("menus")) {
+          if (menu.hasKey("menus") && !menu.isNull("menus")) {
             ReadableArray subMenus = menu.getArray("menus");
 
             for (int j = 0; j < subMenus.size(); j++) {
@@ -88,25 +93,50 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
               final Function1 itemFunc = new Function1() {
                 @Override
                 public Object invoke(Object o) {
-                  ItemHolder item = (ItemHolder) o;
-
-                  if (!subMenu.isNull("label")) {
-                    ((ItemHolder) o).setLabel(subMenu.getString("label"));
-                  }
-                  if (!subMenu.isNull("icon")) {
-                    ReadableMap icon = subMenu.getMap("icon");
-                    Drawable drawable = me.getIcon(icon);
+                  CustomItemHolder item = (CustomItemHolder) o;
+                  item.setLayoutResId(R.layout.mpm_popup_menu_item);
 
 
-                    ((ItemHolder) o).setIcon(drawable.);
-                  }
+                  final Function1 customItemLayout = new Function1() {
+                    @Override
+                    public Object invoke(Object o) {
+                      LinearLayout layout = (LinearLayout) o;
 
+                      AppCompatImageView imageView = (AppCompatImageView) layout.findViewById(R.id.mpm_popup_menu_item_icon);
+                      TextView textView = (TextView) layout.findViewById(R.id.mpm_popup_menu_item_label);
+
+                      if (subMenu.hasKey("label") && !subMenu.isNull("label")) {
+                        textView.setText(subMenu.getString("label"));
+                      }
+                      if (subMenu.hasKey("icon") && !subMenu.isNull("icon")) {
+                        ReadableMap icon = subMenu.getMap("icon");
+                        Drawable drawable = me.getIcon(icon);
+
+                        imageView.setVisibility(View.VISIBLE);
+                        imageView.setImageDrawable(drawable);
+//                        imageView.setBackground(drawable);
+
+//                        try {
+//                          URL url = new URL(icon.getString("uri"));
+//                          Bitmap bitmap = BitmapFactory.decodeStream(url.openStream());
+//                          imageView.setImageBitmap(bitmap);
+//                        } catch (Exception e) {
+//
+//                        }
+                      }
+
+                      return o;
+                    }
+                  };
+
+
+                  item.setViewBoundCallback(customItemLayout);
                   return item;
                 }
               };
 
 
-              ((SectionHolder) o).item(itemFunc);
+              ((SectionHolder) o).customItem(itemFunc);
             }
           }
 
@@ -127,7 +157,8 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
     if (icon == null) return null;
 
     try {
-      URL url = new URL(icon.getString("uri"));
+      String path = icon.getString("uri");
+      URL url = new URL(path);
       Bitmap bitmap = BitmapFactory.decodeStream(url.openStream());
 
       return new BitmapDrawable(reactContext.getResources(), bitmap);
