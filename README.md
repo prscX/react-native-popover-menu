@@ -54,3 +54,7 @@ import RNPopoverMenu from 'react-native-popover-menu';
 ## Contribution
 Contributions are welcome and are greatly appreciated! Every little bit helps, and credit will always be given.
 
+## License
+This library is provided under the MIT License.
+
+RNBottomActionSheet @ Pranav Raj Singh Chauhan
