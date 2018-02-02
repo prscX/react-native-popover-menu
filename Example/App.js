@@ -18,15 +18,18 @@ import RNPopoverMenu from 'react-native-popover-menu'
 
 import resolveAssetSource from "react-native/Libraries/Image/resolveAssetSource";
 
+import Top from "./components/Top";
+import Center from "./components/Center";
+import Bottom from "./components/Bottom";
+
 
 const copy = require('./assets/copy.png')
 const paste = require('./assets/paste.png')
 const share = require('./assets/share.png')
 
-
 export default class App extends Component<{}> {
-  _onPress = () => {
-    RNPopoverMenu.Show(this.ref, {
+  _onPress = (ref) => {
+    RNPopoverMenu.Show(ref, {
       title: "",
       menus: [
         {
@@ -71,32 +74,37 @@ export default class App extends Component<{}> {
 
   render() {
         return <ImageBackground source={require("./assets/dark.jpg")} style={styles.backgroundImage}>
-          <TouchableHighlight ref={ref => {
-              this.ref = ref;
-            }} onPress={() => {
-              this._onPress();
-            }}>
-            <Text style={styles.textStyle}>{"Popover"}</Text>
-          </TouchableHighlight>
-        </ImageBackground>
+            <Top style={styles.top} onPress={ref => {
+                this._onPress(ref);
+              }} />
+            <Center style={styles.center} onPress={ref => {
+                this._onPress(ref);
+              }} />
+            <Bottom style={styles.bottom} onPress={ref => {
+                this._onPress(ref);
+              }} />
+          </ImageBackground>;
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
-  },
   backgroundImage: {
     flex: 1,
     width: null,
     height: null,
-    resizeMode: "cover",
-    justifyContent: "center",
-    alignItems: "center"
+    flexDirection: "column",
+    justifyContent: "space-between"
   },
   textStyle: {
-    color: '#FFFFFF'
+    color: "#FFFFFF"
+  },
+  top: {
+    flex: 1
+  },
+  center: {
+    flex: 1
+  },
+  bottom: {
+    flex: 1
   }
 });
