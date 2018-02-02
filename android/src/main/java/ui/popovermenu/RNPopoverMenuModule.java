@@ -114,15 +114,6 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
 
                         imageView.setVisibility(View.VISIBLE);
                         imageView.setImageDrawable(drawable);
-//                        imageView.setBackground(drawable);
-
-//                        try {
-//                          URL url = new URL(icon.getString("uri"));
-//                          Bitmap bitmap = BitmapFactory.decodeStream(url.openStream());
-//                          imageView.setImageBitmap(bitmap);
-//                        } catch (Exception e) {
-//
-//                        }
                       }
 
                       return o;
