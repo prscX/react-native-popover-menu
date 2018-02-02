@@ -23,25 +23,51 @@ import Center from "./components/Center";
 import Bottom from "./components/Bottom";
 
 
-const copy = require('./assets/copy.png')
-const paste = require('./assets/paste.png')
-const share = require('./assets/share.png')
+const copyIOS = require('./assets/copy_ios.png')
+const copyAndroid = require("./assets/copy_android.png");
+
+const pasteIOS = require('./assets/paste_ios.png')
+const pasteAndroid = require("./assets/paste_android.png");
+
+const shareIOS = require('./assets/share_ios.png')
+const shareAndroid = require("./assets/share_android.png");
 
 export default class App extends Component<{}> {
   _onPress = (ref) => {
-    RNPopoverMenu.Show(ref, {
-      title: "",
-      menus: [
+
+    let meunsIOS = 
+        [{
+          label: "Editing",
+          menus: [
+            {
+              label: "Copy",
+              icon: resolveAssetSource(copyIOS)
+            },
+            {
+              label: "Paste",
+              icon: resolveAssetSource(pasteIOS)
+            },
+            {
+              label: "Share",
+              icon: resolveAssetSource(shareIOS)
+            },
+            {
+              label: "Share me please"
+            }
+          ]
+        }]
+
+    let menusAndroid = [
         {
           label: "Editing",
           menus: [
             {
               label: "Copy",
-              icon: resolveAssetSource(copy)
+              icon: resolveAssetSource(copyAndroid)
             },
             {
               label: "Paste",
-              icon: resolveAssetSource(paste)
+              icon: resolveAssetSource(pasteAndroid)
             }
           ]
         },
@@ -50,7 +76,7 @@ export default class App extends Component<{}> {
           menus: [
             {
               label: "Share",
-              icon: resolveAssetSource(share)
+              icon: resolveAssetSource(shareAndroid)
             }
           ]
         },
@@ -62,14 +88,20 @@ export default class App extends Component<{}> {
             }
           ]
         }
-      ],
-      onDone: selection => {
+      ]
+
+    let menus
+    if (Platform.OS === 'android') {
+      menus = menusAndroid;
+    } else if (Platform.OS === 'ios') {
+      menus = meunsIOS;
+    }
+
+    RNPopoverMenu.Show(ref, { menus: menus, onDone: selection => {
         console.log("selected item index: " + selection);
-      },
-      onCancel: () => {
+      }, onCancel: () => {
         console.log("popover canceled");
-      }
-    });
+      } });
   }
 
   render() {

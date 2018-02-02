@@ -29,19 +29,35 @@ RCT_EXPORT_METHOD(Show:(nonnull NSNumber *)view props:(nonnull NSDictionary *)pr
     NSMutableArray *menuIcons = [[NSMutableArray alloc] init];
     
     for (NSDictionary *menu in menus) {
-        [menuTitles addObject: [menu objectForKey: @"label"]];
+        NSArray *subMenus = [menu objectForKey: @"menus"];
+        title = [menu objectForKey: @"label"];
+        
+        for (NSDictionary *subMenu in subMenus) {
+            [menuTitles addObject: [subMenu objectForKey: @"label"]];
+            
+            NSDictionary *icon = [subMenu objectForKey: @"icon"];
+            if (icon == nil) {
+                [menuIcons addObject: [NSNull null]];
+                continue;
+            }
+            
+            int width = [[icon objectForKey: @"width"] intValue];
+            int height = [[icon objectForKey: @"height"] intValue];
+            NSString *imagePath = [icon objectForKey: @"uri"];
+            
+            NSURL *url = [NSURL URLWithString: imagePath];
+            NSData *data = [NSData dataWithContentsOfURL:url];
+            
+            UIImage *image = [[UIImage alloc] initWithCIImage: [CIImage imageWithData: data]];
+            CGSize size = CGSizeMake(width, height);
 
-        NSDictionary *icon = [menu objectForKey: @"icon"];
-        
-        int width = [[icon objectForKey: @"width"] intValue];
-        int height = [[icon objectForKey: @"height"] intValue];
-        NSString *imagePath = [icon objectForKey: @"uri"];
-        
-        NSURL *url = [NSURL URLWithString: imagePath];
-        NSData *data = [NSData dataWithContentsOfURL:url];
-        
-        UIImage *image = [[UIImage alloc] initWithCIImage: [CIImage imageWithData: data]];
-        [menuIcons addObject: image];
+            UIGraphicsBeginImageContext(size);
+            [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
+            UIImage *destImage = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+            
+            [menuIcons addObject: destImage];
+        }
     }
     
     [FTPopMenu showFTMenuForViewController:vc

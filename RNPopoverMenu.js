@@ -42,7 +42,7 @@ PopoverMenu.propTypes = {
     tintColor: PropTypes.string,
     perferedWidth: PropTypes.number,
     rowHeight: PropTypes.number,
-    menus: PropTypes.object,
+    menus: PropTypes.array,
     onDone: PropTypes.func,
     onCancel: PropTypes.func
 }
