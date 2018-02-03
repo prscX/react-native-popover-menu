@@ -14,7 +14,7 @@ import {
   ImageBackground
 } from "react-native";
 
-import RNPopoverMenu from 'react-native-popover-menu'
+import RNPopover from 'react-native-popover-menu'
 
 import resolveAssetSource from "react-native/Libraries/Image/resolveAssetSource";
 
@@ -32,7 +32,30 @@ const pasteAndroid = require("./assets/paste_android.png");
 const shareIOS = require('./assets/share_ios.png')
 const shareAndroid = require("./assets/share_android.png");
 
+let copy
+let paste
+let share
+
+if (Platform.OS === 'android') {
+  copy = copyAndroid
+  paste = pasteAndroid
+  share = shareAndroid
+} else if (Platform.OS === 'ios') {
+  copy = copyIOS
+  paste = pasteIOS
+  share = shareIOS
+}
+
+
 export default class App extends Component<{}> {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      visible: false
+    }
+  }
+
   _onPress = (ref) => {
 
     let meunsIOS = 
@@ -41,15 +64,15 @@ export default class App extends Component<{}> {
           menus: [
             {
               label: "Copy",
-              icon: resolveAssetSource(copyIOS)
+              icon: copy
             },
             {
               label: "Paste",
-              icon: resolveAssetSource(pasteIOS)
+              icon: paste
             },
             {
               label: "Share",
-              icon: resolveAssetSource(shareIOS)
+              icon: share
             },
             {
               label: "Share me please"
@@ -63,11 +86,11 @@ export default class App extends Component<{}> {
           menus: [
             {
               label: "Copy",
-              icon: resolveAssetSource(copyAndroid)
+              icon: copy
             },
             {
               label: "Paste",
-              icon: resolveAssetSource(pasteAndroid)
+              icon: paste
             }
           ]
         },
@@ -76,7 +99,7 @@ export default class App extends Component<{}> {
           menus: [
             {
               label: "Share",
-              icon: resolveAssetSource(shareAndroid)
+              icon: share
             }
           ]
         },
@@ -97,24 +120,58 @@ export default class App extends Component<{}> {
       menus = meunsIOS;
     }
 
-    RNPopoverMenu.Show(ref, { menus: menus, onDone: selection => {
+    RNPopover.Show(ref, { menus: menus, onDone: selection => {
         console.log("selected item index: " + selection);
       }, onCancel: () => {
         console.log("popover canceled");
       } });
   }
 
+  _show (ref) {
+    this.ref = ref
+
+    this.setState({
+      visible: true
+    })
+  }
+
   render() {
-        return <ImageBackground source={require("./assets/dark.jpg")} style={styles.backgroundImage}>
+      let popover;
+      if (Platform.OS === 'android') {
+          popover = <RNPopover visible={this.state.visible} reference={this.ref}>
+              <RNPopover.Menu label={"Editing"}>
+                <RNPopover.Menu label={"Copy"} icon={copy} />
+                <RNPopover.Menu label={"Paste"} icon={paste} />
+              </RNPopover.Menu>
+              <RNPopover.Menu >
+                <RNPopover.Menu label={"Share"} icon={share} />
+              </RNPopover.Menu>
+            </RNPopover>;
+      } else if (Platform.OS === 'ios') {
+          popover = <RNPopover visible={this.state.visible} reference={this.ref}>
+              <RNPopover.Menu label={"Editing"}>
+                <RNPopover.Menu label={"Copy"} icon={copy} />
+                <RNPopover.Menu label={"Paste"} icon={paste} />
+                <RNPopover.Menu label={"Share"} icon={share} />
+              </RNPopover.Menu>
+            </RNPopover>;        
+      }
+
+
+      return <ImageBackground source={require("./assets/dark.jpg")} style={styles.backgroundImage}>
             <Top style={styles.top} onPress={ref => {
-                this._onPress(ref);
+                // this._onPress(ref);
+                this._show(ref);
               }} />
             <Center style={styles.center} onPress={ref => {
-                this._onPress(ref);
+                // this._onPress(ref);
+                this._show(ref);
               }} />
             <Bottom style={styles.bottom} onPress={ref => {
-                this._onPress(ref);
+                // this._onPress(ref);
+                this._show(ref);
               }} />
+              {popover}
           </ImageBackground>;
   }
 }
