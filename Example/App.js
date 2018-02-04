@@ -138,7 +138,7 @@ export default class App extends Component<{}> {
   render() {
       let popover;
       if (Platform.OS === 'android') {
-          popover = <RNPopover visible={this.state.visible} reference={this.ref} >
+          popover = <RNPopover visible={this.state.visible} reference={this.ref} tintColor={'#000000'} >
               <RNPopover.Menu label={"Editing"}>
                 <RNPopover.Menu label={"Copy"} icon={copy} />
                 <RNPopover.Menu label={"Paste"} icon={paste} />
