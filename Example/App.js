@@ -138,17 +138,19 @@ export default class App extends Component<{}> {
   render() {
       let popover;
       if (Platform.OS === 'android') {
-          popover = <RNPopover visible={this.state.visible} reference={this.ref}>
+          popover = <RNPopover visible={this.state.visible} reference={this.ref} >
               <RNPopover.Menu label={"Editing"}>
                 <RNPopover.Menu label={"Copy"} icon={copy} />
                 <RNPopover.Menu label={"Paste"} icon={paste} />
               </RNPopover.Menu>
-              <RNPopover.Menu >
+              <RNPopover.Menu>
                 <RNPopover.Menu label={"Share"} icon={share} />
               </RNPopover.Menu>
             </RNPopover>;
       } else if (Platform.OS === 'ios') {
-          popover = <RNPopover visible={this.state.visible} reference={this.ref}>
+          popover = <RNPopover visible={this.state.visible} reference={this.ref} onDone={(selection) => {
+            console.log("selection: " + selection);
+          }} >
               <RNPopover.Menu label={"Editing"}>
                 <RNPopover.Menu label={"Copy"} icon={copy} />
                 <RNPopover.Menu label={"Paste"} icon={paste} />
