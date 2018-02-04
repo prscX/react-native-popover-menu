@@ -33,6 +33,17 @@ import RNPopoverMenu from 'react-native-popover-menu';
 
 - React Way
 
+```javascript
+<RNPopover visible={this.state.visible} reference={this.ref}>
+  <RNPopover.Menu label={"Editing"}>
+    <RNPopover.Menu label={"Copy"} icon={copy} />
+    <RNPopover.Menu label={"Paste"} icon={paste} />
+  </RNPopover.Menu>
+  <RNPopover.Menu >
+    <RNPopover.Menu label={"Share"} icon={share} />
+  </RNPopover.Menu>
+</RNPopover>;
+```
 
 - API Way
 
@@ -46,8 +57,23 @@ import RNPopoverMenu from 'react-native-popover-menu';
 ```
 
 
+## Props
+
+
+| Prop              | Type       | Default | Note                                                                                                       |
+| ----------------- | ---------- | ------- | ---------------------------------------------------------------------------------------------------------- |
+| `title`       | `string`     |         | Title of popove section
+| `tintColor`      | `string`     |         | Color of tint
+| `perferedWidth`       | `number`     |         | Perfered Width of the Popover                                                            |
+| `rowHeight`     | `number` |         | Height of the menu row                                                      |
+| `menus` | `array` |         | Array of Menus                                                   |  |
+| `onDone`    | `func`     |         | It is called when menu is selected                                        |  |
+| `onCancel`      | `func`     |         | It is called when we close the popover
+
+
 
 ## Credits
+
 - Android: [zawadz88/MaterialPopupMenu](https://github.com/zawadz88/MaterialPopupMenu)
 - iOS: [liufengting/FTPopMenu](https://github.com/liufengting/FTPopMenu)
 
