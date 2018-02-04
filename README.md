@@ -63,11 +63,11 @@ import RNPopoverMenu from 'react-native-popover-menu';
 | Prop              | Type       | Default | Note                                                                                                       |
 | ----------------- | ---------- | ------- | ---------------------------------------------------------------------------------------------------------- |
 | `title`       | `string`     |         | Title of popove section
-| `tintColor`      | `string`     |         | Color of tint
-| `perferedWidth`       | `number`     |         | Perfered Width of the Popover                                                            |
-| `rowHeight`     | `number` |         | Height of the menu row                                                      |
+| `tintColor: iOS`      | `string`     |         | Color of tint
+| `perferedWidth: iOS`       | `number`     |         | Perfered Width of the Popover                                                            |
+| `rowHeight: iOS`     | `number` |         | Height of the menu row                                                      |
 | `menus` | `array` |         | Array of Menus                                                   |  |
-| `onDone`    | `func`     |         | It is called when menu is selected                                        |  |
+| `onDone(sectionSelection, menuSelection)`    | `func`     |         | It is called when menu is selected                                        |  |
 | `onCancel`      | `func`     |         | It is called when we close the popover
 
 
