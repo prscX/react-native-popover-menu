@@ -88,6 +88,7 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
 
             for (int j = 0; j < subMenus.size(); j++) {
 
+              final int menuIndex = j;
               final ReadableMap subMenu = subMenus.getMap(j);
 
               final Function1 itemFunc = new Function1() {
@@ -122,6 +123,18 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
 
 
                   item.setViewBoundCallback(customItemLayout);
+
+                  final Function0 callback = new Function0() {
+                    @Override
+                    public Object invoke() {
+                      onDone.invoke(index, menuIndex);
+
+                      return null;
+                    }
+                  };
+
+                  item.setCallback(callback);
+
                   return item;
                 }
               };
