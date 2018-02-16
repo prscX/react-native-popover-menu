@@ -19,8 +19,8 @@ class Popover extends Component {
     RNPopoverMenu.Show(
       findNodeHandle(ref),
       { ...props },
-      selection => {
-        props.onDone && props.onDone(selection);
+      (index, menuIndex) => {
+        props.onDone && props.onDone(index, menuIndex);
       },
       () => {
         props.onCancel && props.onCancel();
