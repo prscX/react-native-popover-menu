@@ -164,16 +164,16 @@ export default class App extends Component<{}> {
 
       return <ImageBackground source={require("./assets/dark.jpg")} style={styles.backgroundImage}>
             <Top style={styles.top} onPress={ref => {
-                // this._onPress(ref);
-                this._show(ref);
+                this._onPress(ref);
+                // this._show(ref);
               }} />
             <Center style={styles.center} onPress={ref => {
-                // this._onPress(ref);
-                this._show(ref);
+                this._onPress(ref);
+                // this._show(ref);
               }} />
             <Bottom style={styles.bottom} onPress={ref => {
-                // this._onPress(ref);
-                this._show(ref);
+                this._onPress(ref);
+                // this._show(ref);
               }} />
               {popover}
           </ImageBackground>;

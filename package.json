@@ -1,7 +1,7 @@
 
 {
   "name": "react-native-popover-menu",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "React Native: Native Popover Menu",
   "main": "js/RNPopoverMenu.js",
   "scripts": {

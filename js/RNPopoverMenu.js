@@ -1,10 +1,10 @@
-import React, { Component } from "react"
-import { findNodeHandle, ViewPropTypes, NativeModules } from "react-native"
-import PropTypes from "prop-types"
-import { is } from 'immutable'
+import React, { Component } from "react";
+import { findNodeHandle, ViewPropTypes, NativeModules } from "react-native";
+import PropTypes from "prop-types";
+import { is } from "immutable";
 import resolveAssetSource from "react-native/Libraries/Image/resolveAssetSource";
 
-import { Menu } from './Menu'
+import { Menu } from "./Menu";
 
 const { RNPopoverMenu } = NativeModules;
 
@@ -15,6 +15,20 @@ class Popover extends Component {
     if (props.perferedWidth === undefined) props.perferedWidth = 0;
     if (props.rowHeight === undefined) props.rowHeight = 0;
     if (props.menus === undefined) props.menus = [];
+
+    props.menus &&
+      props.menus.forEach(menu => {
+        menu.menus &&
+          menu.menus.forEach(subMenu => {
+            if (subMenu.icon && typeof subMenu.icon === "number") {
+              subMenu.icon = resolveAssetSource(subMenu.icon);
+            }
+          });
+
+        if (menu.icon && typeof menu.icon === "number") {
+          menu.icon = resolveAssetSource(menu.icon);
+        }
+      });
 
     RNPopoverMenu.Show(
       findNodeHandle(ref),
@@ -29,11 +43,11 @@ class Popover extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-      if (is(this.props, nextProps)) {
-        return false  
-      } else {
-          return true
-      }
+    if (is(this.props, nextProps)) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   componentDidMount() {
@@ -45,26 +59,28 @@ class Popover extends Component {
   }
 
   _show() {
+    let menus = [];
 
-    let menus = []
-
-    React.Children.map(this.props.children, (mainItem, mainIndex, mainItems) => {
-
-      let subMenus = []
-      React.Children.map(mainItem.props.children, (item, index, items) => {
-        subMenus.push({
-          label: item.props.label,
-          icon: item.props.icon === undefined
+    React.Children.map(
+      this.props.children,
+      (mainItem, mainIndex, mainItems) => {
+        let subMenus = [];
+        React.Children.map(mainItem.props.children, (item, index, items) => {
+          subMenus.push({
+            label: item.props.label,
+            icon:
+              item.props.icon === undefined
                 ? undefined
                 : resolveAssetSource(item.props.icon)
-        })
-      })
+          });
+        });
 
-      menus.push({
-        label: mainItem.props.label,
-        menus: subMenus
-      })
-    })
+        menus.push({
+          label: mainItem.props.label,
+          menus: subMenus
+        });
+      }
+    );
 
     if (this.props.visible) {
       Popover.Show(this.props.reference, {
@@ -83,24 +99,23 @@ class Popover extends Component {
   }
 }
 
-
 Popover.propTypes = {
-    ...ViewPropTypes,
+  ...ViewPropTypes,
 
-    visible: PropTypes.bool,
-    tintColor: PropTypes.string,
-    perferedWidth: PropTypes.number,
-    rowHeight: PropTypes.number,
-    menus: PropTypes.array,
-    onDone: PropTypes.func,
-    onCancel: PropTypes.func,
-    reference: PropTypes.object
-}
+  visible: PropTypes.bool,
+  tintColor: PropTypes.string,
+  perferedWidth: PropTypes.number,
+  rowHeight: PropTypes.number,
+  menus: PropTypes.array,
+  onDone: PropTypes.func,
+  onCancel: PropTypes.func,
+  reference: PropTypes.object
+};
 
 Popover.defaultProps = {
-    visible: false
-}
+  visible: false
+};
 
-Popover.Menu = Menu
+Popover.Menu = Menu;
 
-export default Popover
+export default Popover;
