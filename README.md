@@ -1,8 +1,15 @@
 
 
 <p align="center">
-  <img src="https://github.com/zawadz88/MaterialPopupMenu/raw/master/art/components_menus.png" width="256" />
+  <img src="https://github.com/zawadz88/MaterialPopupMenu/raw/master/art/components_menus.png" width="300" />
 </p>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/react-native-popover-menu"><img src="http://img.shields.io/npm/v/react-native-popover-menu.svg?style=flat" /></a>
+  <a href="https://github.com/prscX/react-native-popover-menu/pulls"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" /></a>
+  <a href="https://github.com/prscX/react-native-popover-menu#License"><img src="https://img.shields.io/npm/l/react-native-popover-menu.svg?style=flat" /></a>
+</p>
+
 
 # React Native: Popover Menu
 This library is a ReactNative bridge around native popup/popover menus. It allows you to create simple popup menus.
