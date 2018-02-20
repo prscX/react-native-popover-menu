@@ -1,10 +1,13 @@
 
 package ui.popovermenu;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.DrawableContainer;
@@ -51,6 +54,7 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
   }
 
 
+  @TargetApi(21)
   @ReactMethod
   public void Show(final int view, final ReadableMap props, final Callback onDone, final Callback onCancel) {
 
@@ -94,6 +98,18 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
               final Function1 itemFunc = new Function1() {
                 @Override
                 public Object invoke(Object o) {
+//                  ItemHolder item = (ItemHolder) o;
+
+//                      if (subMenu.hasKey("label") && !subMenu.isNull("label")) {
+//                        item.setLabel(subMenu.getString("label"));
+//                      }
+//                      if (subMenu.hasKey("icon") && !subMenu.isNull("icon")) {
+//                        ReadableMap icon = subMenu.getMap("icon");
+//                        Drawable drawable = me.getIcon(icon);
+//
+//                        item.setIconDrawable(drawable);
+//                      }
+
                   CustomItemHolder item = (CustomItemHolder) o;
                   item.setLayoutResId(R.layout.mpm_popup_menu_item);
 
@@ -104,6 +120,8 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
                       LinearLayout layout = (LinearLayout) o;
 
                       AppCompatImageView imageView = (AppCompatImageView) layout.findViewById(R.id.mpm_popup_menu_item_icon);
+                      imageView.setImageTintMode(PorterDuff.Mode.DST);
+
                       TextView textView = (TextView) layout.findViewById(R.id.mpm_popup_menu_item_label);
 
                       if (subMenu.hasKey("label") && !subMenu.isNull("label")) {
