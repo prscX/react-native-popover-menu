@@ -14,11 +14,13 @@
 # React Native: Popover Menu
 This library is a ReactNative bridge around native popup/popover menus. It allows you to create simple popup menus.
 
+> **Note:** Android SDK 27 > is supported
+
+
 | **Android: [zawadz88/MaterialPopupMenu](https://github.com/zawadz88/MaterialPopupMenu)**             |
 | ----------------- |
 | <img src="https://github.com/zawadz88/MaterialPopupMenu/raw/master/art/sample_sections_light.png" width="600" height="600" />                  |
 
-> **Note:** Android SDK 27 > is supported
 
 | **iOS: [liufengting/FTPopMenu](https://github.com/liufengting/FTPopMenu)**             |
 | ----------------- |
