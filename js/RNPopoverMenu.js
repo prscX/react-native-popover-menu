@@ -9,12 +9,37 @@ import { Menu } from "./Menu";
 const { RNPopoverMenu } = NativeModules;
 
 class Popover extends Component {
+  static propTypes = {
+    ...ViewPropTypes,
+
+    visible: PropTypes.bool,
+    tintColor: PropTypes.string,
+    perferedWidth: PropTypes.number,
+    rowHeight: PropTypes.number,
+    menus: PropTypes.array,
+    onDone: PropTypes.func,
+    onCancel: PropTypes.func,
+    reference: PropTypes.object,
+    theme: PropTypes.string
+  }
+
+  static defaultProps = {
+    visible: false,
+    title: '',
+    tintColor: '',
+    perferedWidth: 0,
+    rowHeight: 0,
+    menus: [],
+    theme: 'dark'
+  }
+
   static Show(ref, props) {
-    if (props.title === undefined) props.title = "";
-    if (props.tintColor === undefined) props.tintColor = "";
-    if (props.perferedWidth === undefined) props.perferedWidth = 0;
-    if (props.rowHeight === undefined) props.rowHeight = 0;
-    if (props.menus === undefined) props.menus = [];
+    if (props.title === undefined) props.title = Popover.defaultProps.title
+    if (props.tintColor === undefined) props.tintColor = Popover.defaultProps.tintColor
+    if (props.perferedWidth === undefined) props.perferedWidth = Popover.defaultProps.perferedWidth;
+    if (props.rowHeight === undefined) props.rowHeight = Popover.defaultProps.rowHeight;
+    if (props.menus === undefined) props.menus = Popover.defaultProps.menus;
+    if (props.theme === undefined) props.theme = Popover.defaultProps.theme;
 
     props.menus &&
       props.menus.forEach(menu => {
@@ -88,6 +113,7 @@ class Popover extends Component {
         perferedWidth: this.props.perferedWidth,
         rowHeight: this.props.rowHeight,
         menus: menus,
+        theme: this.props.theme,
         onDone: this.props.onDone,
         onCancel: this.props.onCancel
       });
@@ -99,22 +125,6 @@ class Popover extends Component {
   }
 }
 
-Popover.propTypes = {
-  ...ViewPropTypes,
-
-  visible: PropTypes.bool,
-  tintColor: PropTypes.string,
-  perferedWidth: PropTypes.number,
-  rowHeight: PropTypes.number,
-  menus: PropTypes.array,
-  onDone: PropTypes.func,
-  onCancel: PropTypes.func,
-  reference: PropTypes.object
-};
-
-Popover.defaultProps = {
-  visible: false
-};
 
 Popover.Menu = Menu;
 

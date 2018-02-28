@@ -81,7 +81,7 @@ import RNPopoverMenu from 'react-native-popover-menu';
 | `menus` | `array` |         | Array of Menus                                                   |  |
 | `onDone(sectionSelection, menuSelection)`    | `func`     |         | It is called when menu is selected                                        |  |
 | `onCancel`      | `func`     |         | It is called when we close the popover
-
+| `theme: Android`      | `string`     |   light      | Light & Dark theme support only on Android Platform
 
 
 ## Credits

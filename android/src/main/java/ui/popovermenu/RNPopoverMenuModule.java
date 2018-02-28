@@ -72,6 +72,10 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
 
     MaterialPopupMenuBuilder popupMenuBuilder = new MaterialPopupMenuBuilder();
 
+    if (props.getString("theme").equalsIgnoreCase("dark")) {
+      popupMenuBuilder.setStyle(R.style.Widget_MPM_Menu_Dark);
+    }
+
     for (int i = 0; i < menus.size(); i++) {
       final int index = i;
 
@@ -98,26 +102,16 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
               final Function1 itemFunc = new Function1() {
                 @Override
                 public Object invoke(Object o) {
-//                  ItemHolder item = (ItemHolder) o;
-
-//                      if (subMenu.hasKey("label") && !subMenu.isNull("label")) {
-//                        item.setLabel(subMenu.getString("label"));
-//                      }
-//                      if (subMenu.hasKey("icon") && !subMenu.isNull("icon")) {
-//                        ReadableMap icon = subMenu.getMap("icon");
-//                        Drawable drawable = me.getIcon(icon);
-//
-//                        item.setIconDrawable(drawable);
-//                      }
-
                   CustomItemHolder item = (CustomItemHolder) o;
                   item.setLayoutResId(R.layout.mpm_popup_menu_item);
-
 
                   final Function1 customItemLayout = new Function1() {
                     @Override
                     public Object invoke(Object o) {
                       LinearLayout layout = (LinearLayout) o;
+//                      if (props.getString("theme").equalsIgnoreCase("dark")) {
+//                        layout.setBackgroundColor(getReactApplicationContext().getResources().getColor(R.color.mpm_popup_menu_background_color_dark));
+//                      }
 
                       AppCompatImageView imageView = (AppCompatImageView) layout.findViewById(R.id.mpm_popup_menu_item_icon);
                       imageView.setImageTintMode(PorterDuff.Mode.DST);
