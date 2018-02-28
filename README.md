@@ -14,13 +14,15 @@
 # React Native: Popover Menu
 This library is a ReactNative bridge around native popup/popover menus. It allows you to create simple popup menus.
 
-- **Android: [zawadz88/MaterialPopupMenu](https://github.com/zawadz88/MaterialPopupMenu)**
+| **Android: [zawadz88/MaterialPopupMenu](https://github.com/zawadz88/MaterialPopupMenu)**             |
+| ----------------- |
+| <img src="https://github.com/zawadz88/MaterialPopupMenu/raw/master/art/sample_sections_light.png" width="600" height="300" />                  |
 
-<img src="https://github.com/zawadz88/MaterialPopupMenu/raw/master/art/sample_sections_light.png" width="600" height="600" />
 
-- **iOS: [liufengting/FTPopMenu](https://github.com/liufengting/FTPopMenu)**
+| **iOS: [liufengting/FTPopMenu](https://github.com/liufengting/FTPopMenu)**             |
+| ----------------- |
+| <img src="https://github.com/liufengting/FTPopMenu/raw/master/ScreenShots/ScreenShots1.png" width="600" height="300" />                  |
 
-<img src="https://github.com/liufengting/FTPopMenu/raw/master/ScreenShots/ScreenShots1.png" width="600" height="600" />
 
 Before we dive into on how to use this library. We would like to thank all the contributor of [zawadz88/MaterialPopupMenu](https://github.com/zawadz88/MaterialPopupMenu) & [liufengting/FTPopMenu](https://github.com/liufengting/FTPopMenu) libraries for providing such a awesome nice, cool library
 
