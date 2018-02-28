@@ -12,7 +12,7 @@ Menu.propTypes = {
   ...ViewPropTypes,
 
   label: PropTypes.string,
-  icon: PropTypes.object
+  icon: PropTypes.number
 };
 
 Menu.defaultProps = {
