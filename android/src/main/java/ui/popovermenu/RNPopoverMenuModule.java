@@ -60,7 +60,7 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
 
     final RNPopoverMenuModule me = this;
     final Activity activity = this.getCurrentActivity();
-    ViewGroup viewGroup = activity.findViewById(view);
+    final ViewGroup viewGroup = activity.findViewById(view);
 
     String title = props.getString("title");
     String tintColor = props.getString("tintColor");
@@ -70,7 +70,7 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
 
     final ReadableArray menus = props.getArray("menus");
 
-    MaterialPopupMenuBuilder popupMenuBuilder = new MaterialPopupMenuBuilder();
+    final MaterialPopupMenuBuilder popupMenuBuilder = new MaterialPopupMenuBuilder();
 
     if (props.getString("theme").equalsIgnoreCase("dark")) {
       popupMenuBuilder.setStyle(R.style.Widget_MPM_Menu_Dark);
@@ -164,8 +164,13 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
     }
 
 
-    MaterialPopupMenu menu = popupMenuBuilder.build();
-    menu.show(activity, viewGroup);
+    this.getCurrentActivity().runOnUiThread(new Runnable() {
+      @Override
+      public void run() {
+        MaterialPopupMenu menu = popupMenuBuilder.build();
+        menu.show(activity, viewGroup);
+      }
+    });
   }
 
 
