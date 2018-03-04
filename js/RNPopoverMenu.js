@@ -30,7 +30,7 @@ class Popover extends Component {
     perferedWidth: 0,
     rowHeight: 0,
     menus: [],
-    theme: 'dark'
+    theme: 'light'
   }
 
   static Show(ref, props) {
