@@ -11,9 +11,11 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.DrawableContainer;
+import android.os.StrictMode;
 import android.support.annotation.DrawableRes;
 import android.support.v7.widget.AppCompatDrawableManager;
 import android.support.v7.widget.AppCompatImageView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -109,9 +111,6 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
                     @Override
                     public Object invoke(Object o) {
                       LinearLayout layout = (LinearLayout) o;
-//                      if (props.getString("theme").equalsIgnoreCase("dark")) {
-//                        layout.setBackgroundColor(getReactApplicationContext().getResources().getColor(R.color.mpm_popup_menu_background_color_dark));
-//                      }
 
                       AppCompatImageView imageView = (AppCompatImageView) layout.findViewById(R.id.mpm_popup_menu_item_icon);
                       imageView.setImageTintMode(PorterDuff.Mode.DST);
@@ -177,6 +176,9 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
   private Drawable getIcon(ReadableMap icon) {
     if (icon == null) return null;
 
+    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+    StrictMode.setThreadPolicy(policy);
+
     try {
       String path = icon.getString("uri");
       URL url = new URL(path);
@@ -184,7 +186,7 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
 
       return new BitmapDrawable(reactContext.getResources(), bitmap);
     } catch (Exception e) {
-
+      Log.e("", e.getMessage());
     }
 
     return null;
