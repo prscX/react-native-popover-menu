@@ -15,36 +15,11 @@ import {
 } from "react-native";
 
 import RNPopover from 'react-native-popover-menu'
-
-import resolveAssetSource from "react-native/Libraries/Image/resolveAssetSource";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 import Top from "./components/Top";
 import Center from "./components/Center";
 import Bottom from "./components/Bottom";
-
-
-const copyIOS = require('./assets/copy_ios.png')
-const copyAndroid = require("./assets/copy_android.png");
-
-const pasteIOS = require('./assets/paste_ios.png')
-const pasteAndroid = require("./assets/paste_android.png");
-
-const shareIOS = require('./assets/share_ios.png')
-const shareAndroid = require("./assets/share_android.png");
-
-let copy
-let paste
-let share
-
-if (Platform.OS === 'android') {
-  copy = copyAndroid
-  paste = pasteAndroid
-  share = shareAndroid
-} else if (Platform.OS === 'ios') {
-  copy = copyIOS
-  paste = pasteIOS
-  share = shareIOS
-}
 
 
 export default class App extends Component<{}> {
@@ -57,6 +32,9 @@ export default class App extends Component<{}> {
   }
 
   _onPress = (ref) => {
+    let copy = <Icon name="copy" size={30} color="#000000" family={"FontAwesome"} />;
+    let paste = <Icon name="paste" size={30} color="#000000" family={"FontAwesome"} />;
+    let share = <Icon name="share" size={30} color="#000000" family={"FontAwesome"} />;
 
     let meunsIOS = 
         [{
@@ -136,10 +114,14 @@ export default class App extends Component<{}> {
   }
 
   render() {
+    let copy = <Icon name="copy" size={30} color="#000000" family={"FontAwesome"} />;
+    let paste = <Icon name="paste" size={30} color="#000000" family={"FontAwesome"} />;
+    let share = <Icon name="share" size={30} color="#000000" family={"FontAwesome"} />;
+
       let popover;
       if (Platform.OS === 'android') {
           popover = <RNPopover visible={this.state.visible} reference={this.ref} onDone={(mainMenuSelection, subMenuSelection) => {
-                console.log("selection: " + mainMenuSelection + ', ' + subMenuSelection);
+                console.log("selection: " + mainMenuSelection + ", " + subMenuSelection);
               }}>
               <RNPopover.Menu label={"Editing"}>
                 <RNPopover.Menu label={"Copy"} icon={copy} />
@@ -161,22 +143,21 @@ export default class App extends Component<{}> {
             </RNPopover>;        
       }
 
-
       return <ImageBackground source={require("./assets/dark.jpg")} style={styles.backgroundImage}>
-            <Top style={styles.top} onPress={ref => {
-                this._onPress(ref);
-                // this._show(ref);
-              }} />
-            <Center style={styles.center} onPress={ref => {
-                this._onPress(ref);
-                // this._show(ref);
-              }} />
-            <Bottom style={styles.bottom} onPress={ref => {
-                this._onPress(ref);
-                // this._show(ref);
-              }} />
-              {popover}
-          </ImageBackground>;
+          <Top style={styles.top} onPress={ref => {
+              this._onPress(ref);
+              // this._show(ref);
+            }} />
+          <Center style={styles.center} onPress={ref => {
+              this._onPress(ref);
+              // this._show(ref);
+            }} />
+          <Bottom style={styles.bottom} onPress={ref => {
+              this._onPress(ref);
+              // this._show(ref);
+            }} />
+          {popover}
+        </ImageBackground>;
   }
 }
 

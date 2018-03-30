@@ -31,6 +31,7 @@ repositories {
 }
 
 dependencies {
+    compile project(':react-native-vector-icons')
     compile 'com.facebook.react:react-native:+'
     compile 'com.github.zawadz88.materialpopupmenu:material-popup-menu:1.4.1'
     compile 'com.android.support:appcompat-v7:27.0.2'

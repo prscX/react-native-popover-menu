@@ -41,22 +41,7 @@ RCT_EXPORT_METHOD(Show:(nonnull NSNumber *)view props:(nonnull NSDictionary *)pr
                 continue;
             }
             
-            int width = [[icon objectForKey: @"width"] intValue];
-            int height = [[icon objectForKey: @"height"] intValue];
-            NSString *imagePath = [icon objectForKey: @"uri"];
-            
-            NSURL *url = [NSURL URLWithString: imagePath];
-            NSData *data = [NSData dataWithContentsOfURL:url];
-            
-            UIImage *image = [[UIImage alloc] initWithCIImage: [CIImage imageWithData: data]];
-            CGSize size = CGSizeMake(width, height);
-
-            UIGraphicsBeginImageContext(size);
-            [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
-            UIImage *destImage = UIGraphicsGetImageFromCurrentImageContext();
-            UIGraphicsEndImageContext();
-            
-            [menuIcons addObject: destImage];
+            [menuIcons addObject: [self generateVectorIcon: icon]];
         }
     }
     
@@ -82,6 +67,33 @@ RCT_EXPORT_METHOD(Show:(nonnull NSNumber *)view props:(nonnull NSDictionary *)pr
           }];
 }
 
+- (UIImage *) generateVectorIcon: (NSDictionary *) icon {
+    NSString *family = [icon objectForKey: @"family"];
+    NSString *name = [icon objectForKey: @"name"];
+    NSString *glyph = [icon objectForKey: @"glyph"];
+    NSNumber *size = [icon objectForKey: @"size"];
+    NSString *color = [icon objectForKey: @"color"];
+
+    UIColor *uiColor = [RNPopoverMenu colorFromHexCode: color];
+    CGFloat screenScale = RCTScreenScale();
+    
+    UIFont *font = [UIFont fontWithName:family size:[size floatValue]];
+    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:glyph attributes:@{NSFontAttributeName: font, NSForegroundColorAttributeName: uiColor}];
+    
+    CGSize iconSize = [attributedString size];
+    UIGraphicsBeginImageContextWithOptions(iconSize, NO, 0.0);
+    [attributedString drawAtPoint:CGPointMake(0, 0)];
+    
+    UIImage *iconImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return iconImage;
+}
+
+- (UIImage *) generateAssetsIcon {
+    return nil;
+}
+
 
 + (UIColor *) colorFromHexCode:(NSString *)hexString {
     NSString *cleanString = [hexString stringByReplacingOccurrencesOfString:@"#" withString:@""];
@@ -105,7 +117,6 @@ RCT_EXPORT_METHOD(Show:(nonnull NSNumber *)view props:(nonnull NSDictionary *)pr
     
     return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
 }
-
 
 @end
   

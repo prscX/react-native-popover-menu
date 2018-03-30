@@ -6,8 +6,12 @@ import android.app.Activity;
 import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.PorterDuff;
+import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.DrawableContainer;
@@ -28,9 +32,11 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 
+import com.facebook.react.views.text.ReactFontManager;
 import com.github.zawadz88.materialpopupmenu.MaterialPopupMenuBuilder;
 import com.github.zawadz88.materialpopupmenu.MaterialPopupMenuBuilder.*;
 import com.github.zawadz88.materialpopupmenu.MaterialPopupMenu;
+import com.oblador.vectoricons.VectorIconsModule;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -122,7 +128,7 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
                       }
                       if (subMenu.hasKey("icon") && !subMenu.isNull("icon")) {
                         ReadableMap icon = subMenu.getMap("icon");
-                        Drawable drawable = me.getIcon(icon);
+                        Drawable drawable = me.generateVectorIcon(icon);
 
                         imageView.setVisibility(View.VISIBLE);
                         imageView.setImageDrawable(drawable);
@@ -172,23 +178,33 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
     });
   }
 
-
-  private Drawable getIcon(ReadableMap icon) {
-    if (icon == null) return null;
-
+  private Drawable generateVectorIcon(ReadableMap icon) {
     StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
     StrictMode.setThreadPolicy(policy);
 
-    try {
-      String path = icon.getString("uri");
-      URL url = new URL(path);
-      Bitmap bitmap = BitmapFactory.decodeStream(url.openStream());
+    String family = icon.getString("family");
+    String name = icon.getString("name");
+    String glyph = icon.getString("glyph");
+    String color = icon.getString("color");
+    int size = icon.getInt("size");
 
-      return new BitmapDrawable(reactContext.getResources(), bitmap);
-    } catch (Exception e) {
-      Log.e("", e.getMessage());
-    }
+    float scale = reactContext.getResources().getDisplayMetrics().density;
+    String scaleSuffix = "@" + (scale == (int) scale ? Integer.toString((int) scale) : Float.toString(scale)) + "x";
+    int fontSize = Math.round(size * scale);
 
-    return null;
+    Typeface typeface = ReactFontManager.getInstance().getTypeface(family, 0, reactContext.getAssets());
+    Paint paint = new Paint();
+    paint.setTypeface(typeface);
+    paint.setColor(Color.parseColor(color));
+    paint.setTextSize(size);
+    paint.setAntiAlias(true);
+    Rect textBounds = new Rect();
+    paint.getTextBounds(glyph, 0, glyph.length(), textBounds);
+
+    Bitmap bitmap = Bitmap.createBitmap(textBounds.width(), textBounds.height(), Bitmap.Config.ARGB_8888);
+    Canvas canvas = new Canvas(bitmap);
+    canvas.drawText(glyph, -textBounds.left, -textBounds.top, paint);
+
+    return new BitmapDrawable(reactContext.getResources(), bitmap);
   }
 }
