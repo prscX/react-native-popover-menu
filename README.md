@@ -27,25 +27,33 @@ This library is a ReactNative bridge around native popup/popover menus. It allow
 | <img src="https://github.com/liufengting/FTPopMenu/raw/master/ScreenShots/ScreenShots1.png" width="600" height="600" />                  |
 
 
-Before we dive into on how to use this library. We would like to thank all the contributor of [zawadz88/MaterialPopupMenu](https://github.com/zawadz88/MaterialPopupMenu) & [liufengting/FTPopMenu](https://github.com/liufengting/FTPopMenu) libraries for providing such a awesome nice, cool library
-
 ## Getting started
 
 `$ npm install react-native-popover-menu --save`
 
 `$ react-native link react-native-popover-menu`
 
+`$ react-native link react-native-vector-icons`
+
 
 
 ## Usage
+
 ```javascript
 import RNPopoverMenu from 'react-native-popover-menu';
+
+import Icon from 'react-native-vector-icons'
 
 ```
 
 - React Way
 
 ```javascript
+
+let copy = <Icon family={'FontAwesome'} name={'copy'} color={'#000000'} size={30} />
+let paste = <Icon family={'FontAwesome'} name={'paste'} color={'#000000'} size={30} />
+let share = <Icon family={'FontAwesome'} name={'share'} color={'#000000'} size={30} />
+
 <RNPopover visible={this.state.visible} reference={this.ref}>
   <RNPopover.Menu label={"Editing"}>
     <RNPopover.Menu label={"Copy"} icon={copy} />
@@ -60,28 +68,71 @@ import RNPopoverMenu from 'react-native-popover-menu';
 - API Way
 
 ```javascript
-    RNPopoverMenu.Show(this.ref, {
-      title: "",
-      menus: [ ],
-      onDone: selection => { },
-      onCancel: () => { }
-    });
+
+
+let copy = <Icon family={'FontAwesome'} name={'copy'} color={'#000000'} size={30} />
+let paste = <Icon family={'FontAwesome'} name={'paste'} color={'#000000'} size={30} />
+let share = <Icon family={'FontAwesome'} name={'share'} color={'#000000'} size={30} />
+
+let menus = [
+  {
+    label: "Editing",
+    menus: [
+      { label: "Copy", icon: copy },
+      { label: "Paste", icon: paste }
+    ]
+  },
+  {
+    label: "Other",
+    menus: [
+      { label: "Share", icon: share }
+    ]
+  },
+  {
+    label: "",
+    menus: [
+      { label: "Share me please" }
+    ]
+  }
+]
+
+RNPopoverMenu.Show(this.ref, {
+  title: "",
+  menus: menus,
+  onDone: selection => { },
+  onCancel: () => { }
+});
+
 ```
+
+> **Note:**
+> - We have added `family` prop for `Icon` class, please make sure that you pass the props
 
 
 ## Props
 
+- **Props: Generic**
 
 | Prop              | Type       | Default | Note                                                                                                       |
 | ----------------- | ---------- | ------- | ---------------------------------------------------------------------------------------------------------- |
-| `title`       | `string`     |         | Title of popove section
-| `tintColor: iOS`      | `string`     |         | Color of tint
-| `perferedWidth: iOS`       | `number`     |         | Perfered Width of the Popover                                                            |
-| `rowHeight: iOS`     | `number` |         | Height of the menu row                                                      |
+| `title`       | `string`     |         | Title of popover section
 | `menus` | `array` |         | Array of Menus                                                   |  |
 | `onDone(sectionSelection, menuSelection)`    | `func`     |         | It is called when menu is selected                                        |  |
 | `onCancel`      | `func`     |         | It is called when we close the popover
-| `theme: Android`      | `string`     |   light      | Light & Dark theme support only on Android Platform
+
+- **Props: Android**
+
+| Prop              | Type       | Default | Note                                                                                                       |
+| ----------------- | ---------- | ------- | ---------------------------------------------------------------------------------------------------------- |
+| `theme`      | `string`     |   light      | Light & Dark theme support only on Android Platform
+
+- **Props: iOS**
+
+| Prop              | Type       | Default | Note                                                                                                       |
+| ----------------- | ---------- | ------- | ---------------------------------------------------------------------------------------------------------- |
+| `tintColor`      | `string`     |         | Color of tint
+| `perferedWidth`       | `number`     |         | Prefered Width of the Popover                                                            |
+| `rowHeight`     | `number` |         | Height of the menu row                                                      |
 
 
 ## Credits
@@ -93,82 +144,7 @@ import RNPopoverMenu from 'react-native-popover-menu';
 Contributions are welcome and are greatly appreciated! Every little bit helps, and credit will always be given.
 
 ## License
-This library is provided under the MIT License.
+This library is provided under the Apache 2 License.
 
-RNBottomActionSheet @ Pranav Raj Singh Chauhan
+RNPopoverMenu @ Pranav Raj Singh Chauhan
 
-
-
-
-## Other Contributions
-
-| [awesome-react-native-native-modules](https://github.com/prscX/awesome-react-native-native-modules)              |
-| ----------------- |
-| <img src="https://github.com/prscX/awesome-react-native-native-modules/raw/master/assets/hero.png" width="600" height="300" />                  |
-
-
-| [react-native-spruce](https://github.com/prscX/react-native-spruce)              |
-| ----------------- |
-| <img src="https://github.com/willowtreeapps/spruce-ios/raw/master/imgs/extensibility-tests.gif" width="600" height="300" />                  |
-
-
-| [react-native-taptargetview](https://github.com/prscX/react-native-taptargetview) & [react-native-material-showcase-ios](https://github.com/prscX/react-native-material-showcase-ios)              |
-| ----------------- |
-| <img src="https://github.com/KeepSafe/TapTargetView/raw/master/.github/video.gif" width="600" height="600" />  |
-
-
-| [react-native-bottom-action-sheet](https://github.com/prscX/react-native-bottom-action-sheet)              |
-| ----------------- |
-| <img src="https://github.com/rubensousa/BottomSheetBuilder/raw/master/screens/normal_demo.gif" width="600" height="600" />                  |
-
-
-
-| [react-native-tooltips](https://github.com/prscX/react-native-tooltips)             |
-| ----------------- |
-| <img src="https://camo.githubusercontent.com/add1764d27026b81adb117e07a10781c9abbde1b/687474703a2f2f692e696d6775722e636f6d2f4f4e383257526c2e676966" width="600" height="300" />                  |
-
-
-| [react-native-shine-button](https://github.com/prscX/react-native-shine-button)             |
-| ----------------- |
-| <img src="https://raw.githubusercontent.com/ChadCSong/ShineButton/master/demo_shine_others.gif" width="600" height="300" />                  |
-
-
-| [react-native-iconic](https://github.com/prscX/react-native-iconic)             |
-| ----------------- |
-| <img src="https://camo.githubusercontent.com/b18993cbfe91de8abdc0019dc9a6cd44707eec21/68747470733a2f2f6431337961637572716a676172612e636c6f756466726f6e742e6e65742f75736572732f3338313133332f73637265656e73686f74732f313639363538302f766266706f70666c6174627574746f6e332e676966" width="600" height="300" />                  |
-
-
-| [react-native-download-button](https://github.com/prscX/react-native-download-button)             |
-| ----------------- |
-| <img src="https://github.com/fenjuly/ArrowDownloadButton/raw/master/screenshots/arrowdownloadbutton.gif" width="600" height="600" />                  |
-
-
-| [react-native-siri-wave-view](https://github.com/prscX/react-native-siri-wave-view)             |
-| ----------------- |
-| <img src="https://cdn.dribbble.com/users/341264/screenshots/2203511/wave.gif" width="600" height="300" />                  |
-
-
-|  [react-native-material-shadows](https://github.com/prscX/react-native-material-shadows)             |
-| ----------------- |
-| <img src="https://raw.githubusercontent.com/harjot-oberai/MaterialShadows/master/screens/cover.png" width="600" height="300" />                  |
-
-
-|  [react-native-gradient-blur-view](https://github.com/prscX/react-native-gradient-blur-view)             |
-| ----------------- |
-| <img src="https://github.com/prscX/react-native-gradient-blur-view/raw/master/assets/hero.png" width="600" height="300" />                  |
-
-
-|  [react-native-about-libraries](https://github.com/prscX/react-native-about-libraries)             |
-| ----------------- |
-| <img src="https://github.com/prscX/react-native-about-libraries/raw/master/hero.png" width="600" height="600" />                  |
-
-
-
-|  [vs-essential-plugins](https://github.com/prscX/vs-essential-plugins)             |
-| ----------------- |
-| <img src="https://pbs.twimg.com/profile_images/922911523328081920/jEKFRPKV_400x400.jpg" width="600" height="300" />                  |
-
-
-|  [prettier-pack](https://github.com/prscX/prettier-pack)             |
-| ----------------- |
-| <img src="https://raw.githubusercontent.com/prettier/prettier-logo/master/images/prettier-banner-light.png" width="600" height="300" />                  |

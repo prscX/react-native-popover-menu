@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { is } from "immutable";
 
 import RNVectorHelper from './RNVectorHelper'
-import resolveAssetSource from "react-native/Libraries/Image/resolveAssetSource";
 
 import { Menu } from "./Menu";
 
@@ -47,9 +46,7 @@ class Popover extends Component {
       props.menus.forEach(menu => {
         menu.menus &&
           menu.menus.forEach(subMenu => {
-            if (subMenu.icon && typeof subMenu.icon === "number") {
-              subMenu.icon = resolveAssetSource(subMenu.icon);
-            } else if (subMenu.icon && subMenu.icon.props) {
+            if (subMenu.icon && subMenu.icon.props) {
               subMenu.icon = subMenu.icon.props;
 
               let glyph = RNVectorHelper.Resolve(subMenu.icon.family, subMenu.icon.name);
@@ -63,9 +60,7 @@ class Popover extends Component {
             }
           });
 
-        if (menu.icon && typeof menu.icon === "number") {
-          menu.icon = resolveAssetSource(menu.icon);
-        } else if (menu.icon && menu.icon.props) {
+        if (menu.icon && menu.icon.props) {
           menu.icon = menu.icon.props
 
           let glyph = RNVectorHelper.Resolve(menu.icon.family, menu.icon.name);
@@ -113,10 +108,7 @@ class Popover extends Component {
         React.Children.map(mainItem.props.children, (item, index, items) => {
           subMenus.push({
             label: item.props.label,
-            icon:
-              item.props.icon === undefined
-                ? undefined
-                : resolveAssetSource(item.props.icon)
+            icon: item.props.icon
           });
         });
 
