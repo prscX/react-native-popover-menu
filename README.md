@@ -35,6 +35,31 @@ This library is a ReactNative bridge around native popup/popover menus. It allow
 
 `$ react-native link react-native-vector-icons`
 
+- **Android**
+
+Please add below snippet into your app build.gradle
+
+```
+
+buildscript {
+    repositories {
+        jcenter()
+        google()
+    }
+    ...
+}
+
+allprojects {
+    repositories {
+        mavenLocal()
+        jcenter()
+        google()
+        ...
+    }
+}
+```
+
+> **Note:** This library is supported Android SDK 27 > above
 
 
 ## Usage
