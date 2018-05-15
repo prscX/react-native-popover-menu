@@ -49,11 +49,8 @@ import kotlin.jvm.functions.Function1;
 
 public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
 
-  private final ReactApplicationContext reactContext;
-
   public RNPopoverMenuModule(ReactApplicationContext reactContext) {
     super(reactContext);
-    this.reactContext = reactContext;
   }
 
   @Override
@@ -67,7 +64,7 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
   public void Show(final int view, final ReadableMap props, final Callback onDone, final Callback onCancel) {
 
     final RNPopoverMenuModule me = this;
-    final Activity activity = this.getCurrentActivity();
+    final Activity activity = getCurrentActivity();
     final ViewGroup viewGroup = activity.findViewById(view);
 
     String title = props.getString("title");
@@ -188,11 +185,11 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
     String color = icon.getString("color");
     int size = icon.getInt("size");
 
-    float scale = reactContext.getResources().getDisplayMetrics().density;
+    float scale = getReactApplicationContext().getResources().getDisplayMetrics().density;
     String scaleSuffix = "@" + (scale == (int) scale ? Integer.toString((int) scale) : Float.toString(scale)) + "x";
     int fontSize = Math.round(size * scale);
 
-    Typeface typeface = ReactFontManager.getInstance().getTypeface(family, 0, reactContext.getAssets());
+    Typeface typeface = ReactFontManager.getInstance().getTypeface(family, 0, getReactApplicationContext().getAssets());
     Paint paint = new Paint();
     paint.setTypeface(typeface);
     paint.setColor(Color.parseColor(color));
@@ -205,6 +202,6 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
     Canvas canvas = new Canvas(bitmap);
     canvas.drawText(glyph, -textBounds.left, -textBounds.top, paint);
 
-    return new BitmapDrawable(reactContext.getResources(), bitmap);
+    return new BitmapDrawable(getReactApplicationContext().getResources(), bitmap);
   }
 }

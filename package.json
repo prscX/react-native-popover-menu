@@ -1,7 +1,7 @@
 
 {
   "name": "react-native-popover-menu",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "React Native: Native Popover Menu",
   "main": "js/RNPopoverMenu.js",
   "scripts": {
@@ -15,11 +15,10 @@
     "url": "https://github.com/prscX/react-native-popover-menu.git"
   },
   "dependencies": {
-    "immutable": "3.8.2",
-    "react-native-vector-icons": "4.5.0"
+    "react-native-vector-icons": "4.6.0"
   },
   "devDependencies": {
-    "prettier-pack": "0.0.5"
+    "prettier-pack": "0.0.6"
   },
   "peerDependencies": {}
 }

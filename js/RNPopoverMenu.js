@@ -1,7 +1,6 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { findNodeHandle, ViewPropTypes, NativeModules } from "react-native";
 import PropTypes from "prop-types";
-import { is } from "immutable";
 
 import RNVectorHelper from './RNVectorHelper'
 
@@ -9,7 +8,7 @@ import { Menu } from "./Menu";
 
 const { RNPopoverMenu } = NativeModules;
 
-class Popover extends Component {
+class Popover extends PureComponent {
   static propTypes = {
     ...ViewPropTypes,
 
@@ -80,14 +79,6 @@ class Popover extends Component {
         props.onCancel && props.onCancel();
       }
     );
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    if (is(this.props, nextProps)) {
-      return false;
-    } else {
-      return true;
-    }
   }
 
   componentDidMount() {
