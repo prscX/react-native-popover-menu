@@ -19,12 +19,12 @@ This library is a ReactNative bridge around native popup/popover menus. It allow
 
 | **Android: [zawadz88/MaterialPopupMenu](https://github.com/zawadz88/MaterialPopupMenu)**             |
 | ----------------- |
-| <img src="https://github.com/zawadz88/MaterialPopupMenu/raw/master/art/sample_sections_light.png" width="600" height="600" />                  |
+| <img src="https://github.com/zawadz88/MaterialPopupMenu/raw/master/art/sample_sections_light.png" height="600" />                  |
 
 
 | **iOS: [liufengting/FTPopMenu](https://github.com/liufengting/FTPopMenu)**             |
 | ----------------- |
-| <img src="https://github.com/liufengting/FTPopMenu/raw/master/ScreenShots/ScreenShots1.png" width="600" height="600" />                  |
+| <img src="https://github.com/liufengting/FTPopMenu/raw/master/ScreenShots/ScreenShots1.png" height="600" />                  |
 
 
 ## Getting started
