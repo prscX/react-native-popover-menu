@@ -160,6 +160,32 @@ RNPopoverMenu.Show(this.ref, {
 | `rowHeight`     | `number` |         | Height of the menu row                                                      |
 
 
+
+## Icons
+
+- **RN Vector Icons:** It supports [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons) library. Please find below snippet for the usage:
+
+```javascript
+	let facebook = <Icon family={'FontAwesome'} name={'facebook'} color={'#000000'} size={30} />
+
+	<RNPopover.Menu label={"Facebook"} icon={facebook} />
+```
+
+> **Note:**
+> - We have added `family` prop for `Icon` class, please make sure that you pass the props
+
+
+- **Custom Icons**
+
+> **Note:**
+> Since we are using native libraries, we have not found a solution in order to render RN Images in production, therefore please copy all your image assets in platform specific folders:
+
+- Android: Please copy your image assets in app resource drawable folder
+- iOS: Please copy your image assets in app resources folder
+
+> Please refer example application for the image usage.
+
+
 ## Credits
 
 - Android: [zawadz88/MaterialPopupMenu](https://github.com/zawadz88/MaterialPopupMenu)

@@ -4,6 +4,7 @@ package ui.popovermenu;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -175,6 +176,7 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
     });
   }
 
+  @TargetApi(21)
   private Drawable generateVectorIcon(ReadableMap icon) {
     StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
     StrictMode.setThreadPolicy(policy);
@@ -184,6 +186,14 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
     String glyph = icon.getString("glyph");
     String color = icon.getString("color");
     int size = icon.getInt("size");
+
+    if (name != null && name.length() > 0 && name.contains(".")) {
+      Resources resources = getReactApplicationContext().getResources();
+      name = name.substring(0, name.lastIndexOf("."));
+
+      final int resourceId = resources.getIdentifier(name, "drawable", getReactApplicationContext().getPackageName());
+      return getReactApplicationContext().getDrawable(resourceId);
+    }
 
     float scale = getReactApplicationContext().getResources().getDisplayMetrics().density;
     String scaleSuffix = "@" + (scale == (int) scale ? Integer.toString((int) scale) : Float.toString(scale)) + "x";

@@ -74,6 +74,10 @@ RCT_EXPORT_METHOD(Show:(nonnull NSNumber *)view props:(nonnull NSDictionary *)pr
     NSNumber *size = [icon objectForKey: @"size"];
     NSString *color = [icon objectForKey: @"color"];
 
+    if (name != nil && [name length] > 0 && [name containsString: @"."]) {
+        return [UIImage imageNamed: name];
+    }
+    
     UIColor *uiColor = [RNPopoverMenu colorFromHexCode: color];
     CGFloat screenScale = RCTScreenScale();
     

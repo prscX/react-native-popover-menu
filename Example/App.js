@@ -46,7 +46,7 @@ export default class App extends Component<{}> {
             },
             {
               label: "Paste",
-              icon: paste
+              icon: 'paste.png'
             },
             {
               label: "Share",
@@ -68,7 +68,7 @@ export default class App extends Component<{}> {
             },
             {
               label: "Paste",
-              icon: paste
+              icon: 'paste.png'
             }
           ]
         },

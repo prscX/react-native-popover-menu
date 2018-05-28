@@ -49,23 +49,21 @@ class Popover extends PureComponent {
               subMenu.icon = subMenu.icon.props;
 
               let glyph = RNVectorHelper.Resolve(subMenu.icon.family, subMenu.icon.name);
-              subMenu.icon = Object.assign(
-                {},
-                subMenu.icon,
-                {
-                  glyph: glyph
-                }
-              );
+              subMenu.icon = Object.assign({}, subMenu.icon, {
+                glyph: glyph
+              });
+            } else if (subMenu.icon !== undefined) {
+              subMenu.icon = { name: subMenu.icon, family: "", glyph: "", color: "", size: 0 };
             }
           });
 
         if (menu.icon && menu.icon.props) {
-          menu.icon = menu.icon.props
+          menu.icon = menu.icon.props;
 
           let glyph = RNVectorHelper.Resolve(menu.icon.family, menu.icon.name);
-          menu.icon = Object.assign({}, menu.icon, {
-            glyph: glyph
-          });
+          menu.icon = Object.assign({}, menu.icon, { glyph: glyph });
+        } else if (menu.icon !== undefined) {
+          menu.icon = { name: menu.icon, family: "", glyph: "", color: "", size: 0 };
         }
       });
 
