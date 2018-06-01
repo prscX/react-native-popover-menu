@@ -63,7 +63,7 @@ allprojects {
 
 - **iOS**
 
-  - Run Command: cd ../node_modules/react-native-popover-menu/ios && pod install. If it has error => try pod repo update then pod install
+  - Run Command: cd `../node_modules/react-native-popover-menu/ios` && `pod install`. If it has error => try `pod repo update` then `pod install`
 
 
 
