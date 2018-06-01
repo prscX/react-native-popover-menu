@@ -8,10 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		B3E7B58A1CC2AC0600A0062D /* RNPopoverMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNPopoverMenu.m */; };
-		CEF1150B202072E10020BD9D /* FTPopTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF11505202072E10020BD9D /* FTPopTableViewController.m */; };
-		CEF1150C202072E10020BD9D /* FTPopMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF11509202072E10020BD9D /* FTPopMenu.m */; };
-		CEF1150D202072E10020BD9D /* UIViewController+FTPopMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF1150A202072E10020BD9D /* UIViewController+FTPopMenu.m */; };
+		CE1CAB7F20C135C400CC6A88 /* libFTPopOverMenu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1CAB7C20C135BF00CC6A88 /* libFTPopOverMenu.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CE1CAB7B20C135BF00CC6A88 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE1CAB7620C135BF00CC6A88 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CA104838A77246FCC6400422D1977027;
+			remoteInfo = FTPopOverMenu;
+		};
+		CE1CAB7D20C135BF00CC6A88 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE1CAB7620C135BF00CC6A88 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 161B9FDD9B4922F493FC2F2215AC915D;
+			remoteInfo = "Pods-RNPopoverMenu";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		58B511D91A9E6C8500147676 /* CopyFiles */ = {
@@ -27,8 +42,12 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libRNPopoverMenu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNPopoverMenu.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		22DD7C199DACB7CD866BC1A8 /* Pods-RNPopoverMenu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNPopoverMenu.release.xcconfig"; path = "Pods/Target Support Files/Pods-RNPopoverMenu/Pods-RNPopoverMenu.release.xcconfig"; sourceTree = "<group>"; };
+		8A1B2375F26251817A6457EA /* libPods-RNPopoverMenu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RNPopoverMenu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		985631E79BC598F4F7889139 /* Pods-RNPopoverMenu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNPopoverMenu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RNPopoverMenu/Pods-RNPopoverMenu.debug.xcconfig"; sourceTree = "<group>"; };
 		B3E7B5881CC2AC0600A0062D /* RNPopoverMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNPopoverMenu.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* RNPopoverMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNPopoverMenu.m; sourceTree = "<group>"; };
+		CE1CAB7620C135BF00CC6A88 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		CEF11505202072E10020BD9D /* FTPopTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTPopTableViewController.m; sourceTree = "<group>"; };
 		CEF11506202072E10020BD9D /* FTPopMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPopMenu.h; sourceTree = "<group>"; };
 		CEF11507202072E10020BD9D /* UIViewController+FTPopMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+FTPopMenu.h"; sourceTree = "<group>"; };
@@ -42,18 +61,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE1CAB7F20C135C400CC6A88 /* libFTPopOverMenu.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		065388F27319BB3A33189C25 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				985631E79BC598F4F7889139 /* Pods-RNPopoverMenu.debug.xcconfig */,
+				22DD7C199DACB7CD866BC1A8 /* Pods-RNPopoverMenu.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		134814211AA4EA7D00B7C361 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				134814201AA4EA6300B7C361 /* libRNPopoverMenu.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		1FB11D3266EEB0553690E38E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE1CAB7620C135BF00CC6A88 /* Pods.xcodeproj */,
+				8A1B2375F26251817A6457EA /* libPods-RNPopoverMenu.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		58B511D21A9E6C8500147676 = {
@@ -63,7 +101,18 @@
 				B3E7B5881CC2AC0600A0062D /* RNPopoverMenu.h */,
 				B3E7B5891CC2AC0600A0062D /* RNPopoverMenu.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
+				065388F27319BB3A33189C25 /* Pods */,
+				1FB11D3266EEB0553690E38E /* Frameworks */,
 			);
+			sourceTree = "<group>";
+		};
+		CE1CAB7720C135BF00CC6A88 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CE1CAB7C20C135BF00CC6A88 /* libFTPopOverMenu.a */,
+				CE1CAB7E20C135BF00CC6A88 /* libPods-RNPopoverMenu.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		CEF11504202072E10020BD9D /* FTPopMenu */ = {
@@ -87,6 +136,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "RNPopoverMenu" */;
 			buildPhases = (
+				A86A64A57896037A6245B112 /* [CP] Check Pods Manifest.lock */,
 				58B511D71A9E6C8500147676 /* Sources */,
 				58B511D81A9E6C8500147676 /* Frameworks */,
 				58B511D91A9E6C8500147676 /* CopyFiles */,
@@ -124,6 +174,12 @@
 			mainGroup = 58B511D21A9E6C8500147676;
 			productRefGroup = 58B511D21A9E6C8500147676;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = CE1CAB7720C135BF00CC6A88 /* Products */;
+					ProjectRef = CE1CAB7620C135BF00CC6A88 /* Pods.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				58B511DA1A9E6C8500147676 /* RNPopoverMenu */,
@@ -131,15 +187,50 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		CE1CAB7C20C135BF00CC6A88 /* libFTPopOverMenu.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libFTPopOverMenu.a;
+			remoteRef = CE1CAB7B20C135BF00CC6A88 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CE1CAB7E20C135BF00CC6A88 /* libPods-RNPopoverMenu.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libPods-RNPopoverMenu.a";
+			remoteRef = CE1CAB7D20C135BF00CC6A88 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A86A64A57896037A6245B112 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RNPopoverMenu-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		58B511D71A9E6C8500147676 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B3E7B58A1CC2AC0600A0062D /* RNPopoverMenu.m in Sources */,
-				CEF1150D202072E10020BD9D /* UIViewController+FTPopMenu.m in Sources */,
-				CEF1150C202072E10020BD9D /* FTPopMenu.m in Sources */,
-				CEF1150B202072E10020BD9D /* FTPopTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +320,7 @@
 		};
 		58B511F01A9E6C8500147676 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 985631E79BC598F4F7889139 /* Pods-RNPopoverMenu.debug.xcconfig */;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -245,6 +337,7 @@
 		};
 		58B511F11A9E6C8500147676 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22DD7C199DACB7CD866BC1A8 /* Pods-RNPopoverMenu.release.xcconfig */;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",

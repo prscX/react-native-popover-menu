@@ -71,7 +71,7 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
     String title = props.getString("title");
     String tintColor = props.getString("tintColor");
 
-    int perferedWidth = props.getInt("perferedWidth");
+    int menuWidth = props.getInt("menuWidth");
     int rowHeight = props.getInt("rowHeight");
 
     final ReadableArray menus = props.getArray("menus");

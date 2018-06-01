@@ -1,7 +1,7 @@
 
 #import "RCTUIManager.h"
 
-#import "FTPopMenu.h"
+#import "FTPopOverMenu.h"
 
 @interface RNPopoverMenu : NSObject <RCTBridgeModule>
 

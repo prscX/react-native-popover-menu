@@ -14,30 +14,50 @@ class Popover extends PureComponent {
 
     visible: PropTypes.bool,
     tintColor: PropTypes.string,
-    perferedWidth: PropTypes.number,
+    textColor: PropTypes.string,
+    menuWidth: PropTypes.number,
     rowHeight: PropTypes.number,
+    textMargin: PropTypes.number,
+    iconMargin: PropTypes.number,
+    selectedRowBackgroundColor: PropTypes.string,
+    roundedArrow: PropTypes.bool,
     menus: PropTypes.array,
     onDone: PropTypes.func,
     onCancel: PropTypes.func,
     reference: PropTypes.object,
     theme: PropTypes.string
-  }
+  };
 
   static defaultProps = {
     visible: false,
-    title: '',
-    tintColor: '',
-    perferedWidth: 0,
-    rowHeight: 0,
+    title: "",
+    tintColor: "",
+    textColor: "",
+    selectedRowBackgroundColor: '',
+    roundedArrow: true,
+    textMargin: 6,
+    iconMargin: 6,
+    menuWidth: 120,
+    rowHeight: 40,
     menus: [],
-    theme: 'light'
-  }
+    theme: "light"
+  };
 
   static Show(ref, props) {
-    if (props.title === undefined) props.title = Popover.defaultProps.title
-    if (props.tintColor === undefined) props.tintColor = Popover.defaultProps.tintColor
-    if (props.perferedWidth === undefined) props.perferedWidth = Popover.defaultProps.perferedWidth;
-    if (props.rowHeight === undefined) props.rowHeight = Popover.defaultProps.rowHeight;
+    if (props.title === undefined) props.title = Popover.defaultProps.title;
+    if (props.tintColor === undefined)
+      props.tintColor = Popover.defaultProps.tintColor;
+    if (props.textColor === undefined)
+      props.textColor = Popover.defaultProps.textColor;
+    if (props.menuWidth === undefined)
+      props.menuWidth = Popover.defaultProps.menuWidth;
+    if (props.rowHeight === undefined)
+      props.rowHeight = Popover.defaultProps.rowHeight;
+    if (props.textMargin === undefined)
+      props.textMargin = Popover.defaultProps.textMargin;
+    if (props.iconMargin === undefined) props.iconMargin = Popover.defaultProps.iconMargin;
+    if (props.roundedArrow === undefined) props.roundedArrow = Popover.defaultProps.roundedArrow;
+    if (props.selectedRowBackgroundColor === undefined) props.selectedRowBackgroundColor = Popover.defaultProps.selectedRowBackgroundColor;
     if (props.menus === undefined) props.menus = Popover.defaultProps.menus;
     if (props.theme === undefined) props.theme = Popover.defaultProps.theme;
 
@@ -48,12 +68,21 @@ class Popover extends PureComponent {
             if (subMenu.icon && subMenu.icon.props) {
               subMenu.icon = subMenu.icon.props;
 
-              let glyph = RNVectorHelper.Resolve(subMenu.icon.family, subMenu.icon.name);
+              let glyph = RNVectorHelper.Resolve(
+                subMenu.icon.family,
+                subMenu.icon.name
+              );
               subMenu.icon = Object.assign({}, subMenu.icon, {
                 glyph: glyph
               });
             } else if (subMenu.icon !== undefined) {
-              subMenu.icon = { name: subMenu.icon, family: "", glyph: "", color: "", size: 0 };
+              subMenu.icon = {
+                name: subMenu.icon,
+                family: "",
+                glyph: "",
+                color: "",
+                size: 0
+              };
             }
           });
 
@@ -63,7 +92,13 @@ class Popover extends PureComponent {
           let glyph = RNVectorHelper.Resolve(menu.icon.family, menu.icon.name);
           menu.icon = Object.assign({}, menu.icon, { glyph: glyph });
         } else if (menu.icon !== undefined) {
-          menu.icon = { name: menu.icon, family: "", glyph: "", color: "", size: 0 };
+          menu.icon = {
+            name: menu.icon,
+            family: "",
+            glyph: "",
+            color: "",
+            size: 0
+          };
         }
       });
 
@@ -111,8 +146,13 @@ class Popover extends PureComponent {
     if (this.props.visible) {
       Popover.Show(this.props.reference, {
         tintColor: this.props.tintColor,
-        perferedWidth: this.props.perferedWidth,
+        textColor: this.props.textColor,
+        menuWidth: this.props.menuWidth,
         rowHeight: this.props.rowHeight,
+        textMargin: this.props.textMargin,
+        iconMargin: this.props.iconMargin,
+        roundedArrow: this.props.roundedArrow,
+        selectedRowBackgroundColor: this.props.selectedRowBackgroundColor,
         menus: menus,
         theme: this.props.theme,
         onDone: this.props.onDone,

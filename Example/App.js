@@ -102,7 +102,7 @@ export default class App extends Component<{}> {
         console.log("selected item index: " + selection);
       }, onCancel: () => {
         console.log("popover canceled");
-      } });
+      }, tintColor: "#888888", textColor: "#FFFFFF" });
   }
 
   _show (ref) {

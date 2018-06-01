@@ -48,7 +48,7 @@
 		94C7128F4CA7445280B5314C /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C831003D7E6946C09035CBCC /* MaterialIcons.ttf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		B3866D926C8644C8B7BF9140 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7B7344D79414585A99B09B5 /* libRNVectorIcons.a */; };
-		CEBCF54120BAFF0100E38EBD /* paste.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBCF51920BAFF0100E38EBD /* paste.png */; };
+		CE764BAF20C0102F00E7E108 /* paste.png in Resources */ = {isa = PBXBuildFile; fileRef = CE764BAE20C0102F00E7E108 /* paste.png */; };
 		E0BE039A6D494AA8B3E6A207 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2994E3C1FB86403B8403A09D /* Zocial.ttf */; };
 		F705588D6AB146B0AD6A66E2 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 534DB364FAC74C0A8E624F3B /* EvilIcons.ttf */; };
 /* End PBXBuildFile section */
@@ -383,7 +383,7 @@
 		C67D645C7914439084DB2DBC /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		C831003D7E6946C09035CBCC /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		CC17475F4B294B24B996F06D /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
-		CEBCF51920BAFF0100E38EBD /* paste.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paste.png; sourceTree = "<group>"; };
+		CE764BAE20C0102F00E7E108 /* paste.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = paste.png; path = Example/Resources/paste.png; sourceTree = "<group>"; };
 		D78A30C33D594BCBA8385206 /* RNPopoverMenu.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNPopoverMenu.xcodeproj; path = "../node_modules/react-native-popover-menu/ios/RNPopoverMenu.xcodeproj"; sourceTree = "<group>"; };
 		D7B7344D79414585A99B09B5 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -646,7 +646,7 @@
 		8D19D63E49FE46A898CAE16D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CEBCF51920BAFF0100E38EBD /* paste.png */,
+				CE764BAE20C0102F00E7E108 /* paste.png */,
 				6C0D00F770BD4D33AC2620E5 /* Entypo.ttf */,
 				534DB364FAC74C0A8E624F3B /* EvilIcons.ttf */,
 				49269C25FA4F4C64B8444C03 /* Feather.ttf */,
@@ -1163,7 +1163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				CEBCF54120BAFF0100E38EBD /* paste.png in Resources */,
+				CE764BAF20C0102F00E7E108 /* paste.png in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				2C94D697F4AF44E58006F93D /* Entypo.ttf in Resources */,
 				F705588D6AB146B0AD6A66E2 /* EvilIcons.ttf in Resources */,
