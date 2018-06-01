@@ -22,9 +22,9 @@ This library is a ReactNative bridge around native popup/popover menus. It allow
 | <img src="https://github.com/zawadz88/MaterialPopupMenu/raw/master/art/sample_sections_light.png" height="600" />                  |
 
 
-| **iOS: [liufengting/FTPopMenu](https://github.com/liufengting/FTPopMenu)**             |
+| **iOS: [liufengting/FTPopOverMenu](https://github.com/liufengting/FTPopOverMenu)**             |
 | ----------------- |
-| <img src="https://github.com/liufengting/FTPopMenu/raw/master/ScreenShots/ScreenShots1.png" height="600" />                  |
+| <img src="https://raw.githubusercontent.com/liufengting/FTResourceRepo/master/Resource/FTPopOverMenu/screenshots.gif" height="600" />                  |
 
 
 ## Getting started
@@ -44,7 +44,7 @@ Please add below snippet into your app build.gradle
 buildscript {
     repositories {
         jcenter()
-        google()
+        maven { url "https://maven.google.com" }
     }
     ...
 }
@@ -53,13 +53,18 @@ allprojects {
     repositories {
         mavenLocal()
         jcenter()
-        google()
+        maven { url "https://maven.google.com" }
         ...
     }
 }
 ```
 
 > **Note:** This library is supported Android SDK 27 > above
+
+- **iOS**
+
+  - Run Command: cd ../node_modules/react-native-popover-menu/ios && pod install. If it has error => try pod repo update then pod install
+
 
 
 ## Usage
@@ -145,6 +150,7 @@ RNPopoverMenu.Show(this.ref, {
 | `onDone(sectionSelection, menuSelection)`    | `func`     |         | It is called when menu is selected                                        |  |
 | `onCancel`      | `func`     |         | It is called when we close the popover
 
+
 - **Props: Android**
 
 | Prop              | Type       | Default | Note                                                                                                       |
@@ -153,12 +159,18 @@ RNPopoverMenu.Show(this.ref, {
 
 - **Props: iOS**
 
+
 | Prop              | Type       | Default | Note                                                                                                       |
 | ----------------- | ---------- | ------- | ---------------------------------------------------------------------------------------------------------- |
 | `tintColor`      | `string`     |         | Color of tint
-| `perferedWidth`       | `number`     |         | Prefered Width of the Popover                                                            |
+| `menuWidth`       | `number`     |         | Specify menu width of the Popover                                                            |
 | `rowHeight`     | `number` |         | Height of the menu row                                                      |
-
+| `rowHeight`     | `number` |         | Height of the menu row                                                      |
+| `textMargin`     | `number` |         | Specify text margin from icon                                                      |
+| `iconMargin`     | `number` |         | Specify icon margin from border                                                      |
+| `selectedRowBackgroundColor`     | `string` |         | Specify selected row background color                                                      |
+| `roundedArrow`     | `bool` |         | Specify whether rounded arrow required or not                                                     |
+| `textColor`     | `string` |         | Specify text color                                                      |
 
 
 ## Icons
@@ -189,7 +201,7 @@ RNPopoverMenu.Show(this.ref, {
 ## Credits
 
 - Android: [zawadz88/MaterialPopupMenu](https://github.com/zawadz88/MaterialPopupMenu)
-- iOS: [liufengting/FTPopMenu](https://github.com/liufengting/FTPopMenu)
+- iOS: [liufengting/FTPopOverMenu](https://github.com/liufengting/FTPopOverMenu)
 
 ## Contribution
 Contributions are welcome and are greatly appreciated! Every little bit helps, and credit will always be given.
