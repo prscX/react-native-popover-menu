@@ -15,6 +15,8 @@ class Popover extends PureComponent {
     visible: PropTypes.bool,
     tintColor: PropTypes.string,
     textColor: PropTypes.string,
+    borderWidth: PropTypes.number,
+    borderColor: PropTypes.string,
     menuWidth: PropTypes.number,
     rowHeight: PropTypes.number,
     textMargin: PropTypes.number,
@@ -33,6 +35,8 @@ class Popover extends PureComponent {
     title: "",
     tintColor: "",
     textColor: "",
+    borderColor: "",
+    borderWidth: 1,
     selectedRowBackgroundColor: '',
     roundedArrow: true,
     textMargin: 6,
@@ -60,6 +64,8 @@ class Popover extends PureComponent {
     if (props.selectedRowBackgroundColor === undefined) props.selectedRowBackgroundColor = Popover.defaultProps.selectedRowBackgroundColor;
     if (props.menus === undefined) props.menus = Popover.defaultProps.menus;
     if (props.theme === undefined) props.theme = Popover.defaultProps.theme;
+    if (props.borderWidth === undefined) props.borderWidth = Popover.defaultProps.borderWidth;
+    if (props.borderColor === undefined) props.borderColor = Popover.defaultProps.borderColor;
 
     props.menus &&
       props.menus.forEach(menu => {
@@ -147,6 +153,8 @@ class Popover extends PureComponent {
       Popover.Show(this.props.reference, {
         tintColor: this.props.tintColor,
         textColor: this.props.textColor,
+        borderWidth: this.props.borderWidth,
+        borderColor: this.props.borderColor,
         menuWidth: this.props.menuWidth,
         rowHeight: this.props.rowHeight,
         textMargin: this.props.textMargin,

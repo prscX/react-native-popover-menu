@@ -171,6 +171,9 @@ RNPopoverMenu.Show(this.ref, {
 | `selectedRowBackgroundColor`     | `string` |         | Specify selected row background color                                                      |
 | `roundedArrow`     | `bool` |         | Specify whether rounded arrow required or not                                                     |
 | `textColor`     | `string` |         | Specify text color                                                      |
+| `borderColor`     | `string` |         | Specify border color                                                      |
+| `borderWidth`     | `number` |         | Specify border width                                                      |
+
 
 
 ## Icons
