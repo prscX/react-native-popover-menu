@@ -88,7 +88,7 @@ RCT_EXPORT_METHOD(Show:(nonnull NSNumber *)view props:(nonnull NSDictionary *)pr
 //    configuration.textFont = ...
     configuration.tintColor = tintColr;
     configuration.borderColor = borderColr;
-    configuration.borderWidth = borderWidth;
+    configuration.borderWidth = [borderWidth longValue];
 //    configuration.textAlignment = ...
 //    configuration.ignoreImageOriginalColor = ...;// set 'ignoreImageOriginalColor' to YES, images color will be same as textColor
 //    configuration.allowRoundedArrow = ...// Default is 'NO', if sets to 'YES', the arrow will be drawn with round corner.
