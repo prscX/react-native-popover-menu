@@ -27,6 +27,11 @@ RCT_EXPORT_METHOD(Show:(nonnull NSNumber *)view props:(nonnull NSDictionary *)pr
     NSString *selectedRowBackgroundColor = [props objectForKey: @"selectedRowBackgroundColor"];
     NSNumber *roundedArrow = [props objectForKey: @"roundedArrow"];
     NSString *separatorColor = [props objectForKey: @"separatorColor"];
+    NSString *shadowColor = [props objectForKey: @"shadowColor"];
+    NSNumber *shadowOpacity = [props objectForKey: @"shadowOpacity"];
+    NSNumber *shadowRadius = [props objectForKey: @"shadowRadius"];
+    NSNumber *shadowOffsetX = [props objectForKey: @"shadowOffsetX"];
+    NSNumber *shadowOffsetY = [props objectForKey: @"shadowOffsetY"];
     
     NSNumber *menuWidth = [props objectForKey: @"menuWidth"];
     NSNumber *rowHeight = [props objectForKey: @"rowHeight"];
@@ -83,6 +88,13 @@ RCT_EXPORT_METHOD(Show:(nonnull NSNumber *)view props:(nonnull NSDictionary *)pr
     } else {
         separatorColr = [UIColor grayColor];
     }
+
+    UIColor *shadowColr;
+    if ([separatorColor length] > 0) {
+        shadowColr = [RNPopoverMenu colorFromHexCode: shadowColor];
+    } else {
+        shadowColr = [UIColor blackColor];
+    }
     
 
     FTPopOverMenuConfiguration *configuration = [FTPopOverMenuConfiguration defaultConfiguration];
@@ -93,11 +105,17 @@ RCT_EXPORT_METHOD(Show:(nonnull NSNumber *)view props:(nonnull NSDictionary *)pr
     configuration.menuIconMargin = [iconMargin longValue];
     configuration.selectedCellBackgroundColor = selectedRowBackgroundColr;
     configuration.allowRoundedArrow = [roundedArrow boolValue];
-//    configuration.textFont = ...
+//  configuration.textFont = ...
     configuration.tintColor = tintColr;
     configuration.borderColor = borderColr;
     configuration.borderWidth = [borderWidth longValue];
     configuration.separatorColor = separatorColr;
+    configuration.shadowColor = shadowColr;
+    configuration.shadowOpacity = [shadowOpacity floatValue];
+    configuration.shadowRadius = [shadowRadius longValue];
+    configuration.shadowOffsetX = [shadowOffsetX longValue];
+    configuration.shadowOffsetY = [shadowOffsetY longValue];
+
 //    configuration.textAlignment = ...
 //    configuration.ignoreImageOriginalColor = ...;// set 'ignoreImageOriginalColor' to YES, images color will be same as textColor
 //    configuration.allowRoundedArrow = ...// Default is 'NO', if sets to 'YES', the arrow will be drawn with round corner.
