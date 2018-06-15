@@ -173,7 +173,7 @@ RNPopoverMenu.Show(this.ref, {
 | `textColor`     | `string` |         | Specify text color                                                      |
 | `borderColor`     | `string` |         | Specify border color                                                      |
 | `borderWidth`     | `number` |         | Specify border width                                                      |
-
+| `separatorColor`  | `string` |         | Specify the menu separator col                                            |
 
 
 ## Icons
