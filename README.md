@@ -173,7 +173,13 @@ RNPopoverMenu.Show(this.ref, {
 | `textColor`     | `string` |         | Specify text color                                                      |
 | `borderColor`     | `string` |         | Specify border color                                                      |
 | `borderWidth`     | `number` |         | Specify border width                                                      |
-| `separatorColor`  | `string` |         | Specify the menu separator col                                            |
+| `separatorColor`  | `string` |         | Specify the menu separator color                                          |
+| `shadowColor`  | `string` |         | Specify the shadow color |
+| `shadowOpacity`     | `float` |         | Specify shadow opacity between 0 and 1. 0 disables the shadow. |
+| `shadowColor`     | `number` |         | Specify border width                                                      |
+| `shadowRadius`     | `number` |         | Specify shadow radius                                                  |
+| `shadowOffsetX`     | `number` |         | Specify the horizontal shadow offset |
+| `shadowOffsetY`     | `number` |         | Specify the vertical shadow offset |
 
 
 ## Icons
