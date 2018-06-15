@@ -26,6 +26,7 @@ RCT_EXPORT_METHOD(Show:(nonnull NSNumber *)view props:(nonnull NSDictionary *)pr
     NSNumber *iconMargin = [props objectForKey: @"iconMargin"];
     NSString *selectedRowBackgroundColor = [props objectForKey: @"selectedRowBackgroundColor"];
     NSNumber *roundedArrow = [props objectForKey: @"roundedArrow"];
+    NSString *separatorColor = [props objectForKey: @"separatorColor"];
     
     NSNumber *menuWidth = [props objectForKey: @"menuWidth"];
     NSNumber *rowHeight = [props objectForKey: @"rowHeight"];
@@ -75,6 +76,13 @@ RCT_EXPORT_METHOD(Show:(nonnull NSNumber *)view props:(nonnull NSDictionary *)pr
     } else {
         borderColr = [UIColor clearColor];
     }
+
+    UIColor *separatorColr;
+    if ([separatorColor length] > 0) {
+        separatorColr = [RNPopoverMenu colorFromHexCode: separatorColor];
+    } else {
+        separatorColr = [UIColor grayColor];
+    }
     
 
     FTPopOverMenuConfiguration *configuration = [FTPopOverMenuConfiguration defaultConfiguration];
@@ -89,6 +97,7 @@ RCT_EXPORT_METHOD(Show:(nonnull NSNumber *)view props:(nonnull NSDictionary *)pr
     configuration.tintColor = tintColr;
     configuration.borderColor = borderColr;
     configuration.borderWidth = [borderWidth longValue];
+    configuration.separatorColor = separatorColr;
 //    configuration.textAlignment = ...
 //    configuration.ignoreImageOriginalColor = ...;// set 'ignoreImageOriginalColor' to YES, images color will be same as textColor
 //    configuration.allowRoundedArrow = ...// Default is 'NO', if sets to 'YES', the arrow will be drawn with round corner.

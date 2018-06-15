@@ -17,6 +17,7 @@ class Popover extends PureComponent {
     textColor: PropTypes.string,
     borderWidth: PropTypes.number,
     borderColor: PropTypes.string,
+    separatorColor: PropTypes.string,
     menuWidth: PropTypes.number,
     rowHeight: PropTypes.number,
     textMargin: PropTypes.number,
@@ -36,6 +37,7 @@ class Popover extends PureComponent {
     tintColor: "",
     textColor: "",
     borderColor: "",
+    separatorColor: "",
     borderWidth: 1,
     selectedRowBackgroundColor: '',
     roundedArrow: true,
@@ -65,7 +67,8 @@ class Popover extends PureComponent {
     if (props.menus === undefined) props.menus = Popover.defaultProps.menus;
     if (props.theme === undefined) props.theme = Popover.defaultProps.theme;
     if (props.borderWidth === undefined) props.borderWidth = Popover.defaultProps.borderWidth;
-    if (props.borderColor === undefined) props.borderColor = Popover.defaultProps.borderColor;
+    if (props.borderColor === undefined) props.borderColor = Popover.defaultProps.borderColor
+    if (props.separatorColor === undefined) props.separatorColor = Popover.defaultProps.separatorColor;
 
     props.menus &&
       props.menus.forEach(menu => {
