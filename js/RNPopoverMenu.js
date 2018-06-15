@@ -28,7 +28,12 @@ class Popover extends PureComponent {
     onDone: PropTypes.func,
     onCancel: PropTypes.func,
     reference: PropTypes.object,
-    theme: PropTypes.string
+    theme: PropTypes.string,
+    shadowColor: PropTypes.string,
+    shadowOpacity: PropTypes.number,
+    shadowRadius: PropTypes.number,
+    shadowOffsetX: PropTypes.number,
+    shadowOffsetY: PropTypes.number
   };
 
   static defaultProps = {
@@ -46,29 +51,21 @@ class Popover extends PureComponent {
     menuWidth: 120,
     rowHeight: 40,
     menus: [],
-    theme: "light"
+    theme: "light",
+    shadowColor: '#000000',
+    shadowOpacity: 0,
+    shadowRadius: 5,
+    shadowOffsetX: 0,
+    shadowOffsetY: 2
   };
 
   static Show(ref, props) {
-    if (props.title === undefined) props.title = Popover.defaultProps.title;
-    if (props.tintColor === undefined)
-      props.tintColor = Popover.defaultProps.tintColor;
-    if (props.textColor === undefined)
-      props.textColor = Popover.defaultProps.textColor;
-    if (props.menuWidth === undefined)
-      props.menuWidth = Popover.defaultProps.menuWidth;
-    if (props.rowHeight === undefined)
-      props.rowHeight = Popover.defaultProps.rowHeight;
-    if (props.textMargin === undefined)
-      props.textMargin = Popover.defaultProps.textMargin;
-    if (props.iconMargin === undefined) props.iconMargin = Popover.defaultProps.iconMargin;
-    if (props.roundedArrow === undefined) props.roundedArrow = Popover.defaultProps.roundedArrow;
-    if (props.selectedRowBackgroundColor === undefined) props.selectedRowBackgroundColor = Popover.defaultProps.selectedRowBackgroundColor;
-    if (props.menus === undefined) props.menus = Popover.defaultProps.menus;
-    if (props.theme === undefined) props.theme = Popover.defaultProps.theme;
-    if (props.borderWidth === undefined) props.borderWidth = Popover.defaultProps.borderWidth;
-    if (props.borderColor === undefined) props.borderColor = Popover.defaultProps.borderColor
-    if (props.separatorColor === undefined) props.separatorColor = Popover.defaultProps.separatorColor;
+
+    // unified default props handler
+    Object.keys(Popover.defaultProps).map((id) => {
+      if(props[id] === undefined) props[id] = Popover.defaultProps[id];
+    });
+
 
     props.menus &&
       props.menus.forEach(menu => {
