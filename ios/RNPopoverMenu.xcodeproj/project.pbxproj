@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E75914C5F3F7559410B1F01 /* libPods-RNPopoverMenu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1B2375F26251817A6457EA /* libPods-RNPopoverMenu.a */; };
 		B3E7B58A1CC2AC0600A0062D /* RNPopoverMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNPopoverMenu.m */; };
 		CE1CAB7F20C135C400CC6A88 /* libFTPopOverMenu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1CAB7C20C135BF00CC6A88 /* libFTPopOverMenu.a */; };
 /* End PBXBuildFile section */
@@ -62,6 +63,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE1CAB7F20C135C400CC6A88 /* libFTPopOverMenu.a in Frameworks */,
+				9E75914C5F3F7559410B1F01 /* libPods-RNPopoverMenu.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

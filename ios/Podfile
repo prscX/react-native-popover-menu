@@ -7,5 +7,5 @@ target 'RNPopoverMenu' do
 
   # Pods for RNPopoverMenu
 
-  pod 'FTPopOverMenu'
+  pod 'FTPopOverMenu', '1.3.6'
 end
