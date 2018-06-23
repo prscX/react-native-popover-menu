@@ -9,7 +9,7 @@
   },
   "keywords": ["react-native"],
   "author": "Pranav Raj Singh Chauhan",
-  "license": "MIT",
+  "license": "Apache License 2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/prscX/react-native-popover-menu.git"

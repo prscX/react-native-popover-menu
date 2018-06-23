@@ -1,4 +1,5 @@
 
+<h1 align="center">
 
 <p align="center">
   <img src="https://github.com/zawadz88/MaterialPopupMenu/raw/master/art/components_menus.png" width="300" height="300" />
@@ -11,11 +12,12 @@
 </p>
 
 
-# React Native: Popover Menu
-This library is a ReactNative bridge around native popup/popover menus. It allows you to create simple popup menus.
+    ReactNative: Native Popover Menu (Android/iOS)
 
-> **Note:** Android SDK 27 > is supported
+If this project has helped you out, please support us with a star 🌟
+</h1>
 
+This library is a React Native bridge around native popover libraries. It allows show/guide beautiful popover menus:
 
 | **Android: [zawadz88/MaterialPopupMenu](https://github.com/zawadz88/MaterialPopupMenu)**             |
 | ----------------- |
@@ -27,7 +29,7 @@ This library is a ReactNative bridge around native popup/popover menus. It allow
 | <img src="https://raw.githubusercontent.com/liufengting/FTResourceRepo/master/Resource/FTPopOverMenu/screenshots.gif" height="600" />                  |
 
 
-## Getting started
+## 📖 Getting started
 
 `$ npm install react-native-popover-menu --save`
 
@@ -67,7 +69,7 @@ allprojects {
 
 
 
-## Usage
+## 💻 Usage
 
 ```javascript
 import RNPopoverMenu from 'react-native-popover-menu';
@@ -139,7 +141,7 @@ RNPopoverMenu.Show(this.ref, {
 > - We have added `family` prop for `Icon` class, please make sure that you pass the props
 
 
-## Props
+## 💡 Props
 
 - **Props: Generic**
 
@@ -207,16 +209,36 @@ RNPopoverMenu.Show(this.ref, {
 > Please refer example application for the image usage.
 
 
-## Credits
+## ✨ Credits
 
 - Android: [zawadz88/MaterialPopupMenu](https://github.com/zawadz88/MaterialPopupMenu)
 - iOS: [liufengting/FTPopOverMenu](https://github.com/liufengting/FTPopOverMenu)
 
-## Contribution
+
+## 🤔 How to contribute
+Have an idea? Found a bug? Please raise to [ISSUES](https://github.com/prscX/react-native-popover-menu/issues).
 Contributions are welcome and are greatly appreciated! Every little bit helps, and credit will always be given.
 
-## License
+## 💫 Where is this library used?
+If you are using this library in one of your projects, add it in this list below. ✨
+
+
+## 📜 License
 This library is provided under the Apache 2 License.
 
-RNPopoverMenu @ Pranav Raj Singh Chauhan
+RNPopoverMenu @ [prscX](https://github.com/prscX)
 
+## 💖 Support my projects
+I open-source almost everything I can, and I try to reply everyone needing help using these projects. Obviously, this takes time. You can integrate and use these projects in your applications for free! You can even change the source code and redistribute (even resell it).
+
+However, if you get some profit from this or just want to encourage me to continue creating stuff, there are few ways you can do it:
+* Starring and sharing the projects you like 🚀
+* If you're feeling especially charitable, please follow [prscX](https://github.com/prscX) on GitHub.
+
+  <a href="https://www.buymeacoffee.com/prscX" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+
+  Thanks! ❤️
+  <br/>
+  [prscX.github.io](https://prscx.github.io)
+  <br/>
+  </ Pranav >
