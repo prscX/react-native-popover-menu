@@ -64,8 +64,7 @@ allprojects {
 > **Note:** This library is supported Android SDK 27 > above
 
 - **iOS**
-
-  - Run Command: cd `../node_modules/react-native-popover-menu/ios` && `pod install`. If it has error => try `pod repo update` then `pod install`
+  - After `react-native link react-native-popover-menu`, please verify `node_modules/react-native-apopover-menu/ios/` contains `Pods` folder. If does not exist please execute `pod install` command on `node_modules/react-native-popover-menu/ios/`, if any error => try `pod repo update` then `pod install`
 
 
 
@@ -224,7 +223,7 @@ If you are using this library in one of your projects, add it in this list below
 
 
 ## 📜 License
-This library is provided under the Apache 2 License.
+This library is provided under the Apache License.
 
 RNPopoverMenu @ [prscX](https://github.com/prscX)
 
