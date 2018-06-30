@@ -163,7 +163,7 @@ RNPopoverMenu.Show(this.ref, {
 
 | Prop              | Type       | Default | Note                                                                                                       |
 | ----------------- | ---------- | ------- | ---------------------------------------------------------------------------------------------------------- |
-| `tintColor`      | `string`     |         | Color of tint
+| `tintColor`      | `string`     |    '#FFFFFF'     | Color of tint
 | `menuWidth`       | `number`     |         | Specify menu width of the Popover                                                            |
 | `rowHeight`     | `number` |         | Height of the menu row                                                      |
 | `rowHeight`     | `number` |         | Height of the menu row                                                      |
