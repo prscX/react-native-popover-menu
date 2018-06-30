@@ -39,7 +39,7 @@ class Popover extends PureComponent {
   static defaultProps = {
     visible: false,
     title: "",
-    tintColor: "",
+    tintColor: "#FFFFFF",
     textColor: "",
     borderColor: "",
     separatorColor: "",
