@@ -12,7 +12,7 @@ Menu.propTypes = {
   ...ViewPropTypes,
 
   label: PropTypes.string,
-  icon: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+  icon: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.object])
 };
 
 Menu.defaultProps = {
