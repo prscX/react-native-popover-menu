@@ -66,7 +66,7 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
 
     final RNPopoverMenuModule me = this;
     final Activity activity = getCurrentActivity();
-    final ViewGroup viewGroup = activity.findViewById(view);
+    final View viewGroup = activity.findViewById(view);
 
     String title = props.getString("title");
     String tintColor = props.getString("tintColor");
