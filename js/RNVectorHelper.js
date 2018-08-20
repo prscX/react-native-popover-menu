@@ -1,4 +1,3 @@
-
 import EntypoGlyphMap from "react-native-vector-icons/glyphmaps/Entypo.json";
 import EvilIconsGlyphMap from "react-native-vector-icons/glyphmaps/EvilIcons.json";
 import FeatherGlyphMap from "react-native-vector-icons/glyphmaps/Feather.json";
@@ -11,91 +10,128 @@ import OcticonsGlyphMap from "react-native-vector-icons/glyphmaps/Octicons.json"
 import SimpleLineIconsGlyphMap from "react-native-vector-icons/glyphmaps/SimpleLineIcons.json";
 import ZocialGlyphMap from "react-native-vector-icons/glyphmaps/Zocial.json";
 
-class RNVectorHelper {
+import { Platform } from "react-native";
 
-  static Resolve (family, name) {
-    let glyph;
+class RNVectorHelper {
+  static Resolve(family, name) {
+    let glyph, fontFamily;
 
     switch (family) {
       case "Entypo":
         glyph = EntypoGlyphMap[name];
-        if (typeof glyph === 'number') {
+        if (typeof glyph === "number") {
           glyph = String.fromCharCode(glyph);
         }
+        fontFamily = "Entypo";
 
-        return glyph
+        return { glyph: glyph, family: fontFamily };
       case "EvilIcons":
         glyph = EvilIconsGlyphMap[name];
         if (typeof glyph === "number") {
           glyph = String.fromCharCode(glyph);
         }
+        fontFamily = "EvilIcons";
 
-        return glyph;
+        return { glyph: glyph, family: fontFamily };
       case "Feather":
         glyph = FeatherGlyphMap[name];
         if (typeof glyph === "number") {
           glyph = String.fromCharCode(glyph);
         }
+        fontFamily = "Feather";
 
-        return glyph;
+        return { glyph: glyph, family: fontFamily };
       case "FontAwesome":
         glyph = FontAwesomeGlyphMap[name];
         if (typeof glyph === "number") {
           glyph = String.fromCharCode(glyph);
         }
+        fontFamily = "FontAwesome";
 
-        return glyph;
+        return { glyph: glyph, family: fontFamily };
       case "Foundation":
         glyph = FoundationGlyphMap[name];
         if (typeof glyph === "number") {
           glyph = String.fromCharCode(glyph);
         }
 
-        return glyph;
+        if (Platform.OS === "ios") {
+          fontFamily = "fontcustom";
+        } else {
+          fontFamily = "Foundation";
+        }
+
+        return { glyph: glyph, family: fontFamily };
       case "Ionicons":
         glyph = IoniconsGlyphMap[name];
         if (typeof glyph === "number") {
           glyph = String.fromCharCode(glyph);
         }
+        fontFamily = "Ionicons";
 
-        return glyph;
+        return { glyph: glyph, family: fontFamily };
       case "MaterialCommunityIcons":
         glyph = MaterialCommunityIconsGlyphMap[name];
         if (typeof glyph === "number") {
           glyph = String.fromCharCode(glyph);
         }
 
-        return glyph;
+        if (Platform.OS === "ios") {
+          fontFamily = "Material Design Icons";
+        } else {
+          fontFamily = "MaterialCommunityIcons";
+        }
+
+        return { glyph: glyph, family: fontFamily };
       case "MaterialIcons":
         glyph = MaterialIconsGlyphMap[name];
         if (typeof glyph === "number") {
           glyph = String.fromCharCode(glyph);
         }
 
-        return glyph;
+        if (Platform.OS === "ios") {
+          fontFamily = "Material Icons";
+        } else {
+          fontFamily = "MaterialIcons";
+        }
+
+        return { glyph: glyph, family: fontFamily };
       case "Octicons":
         glyph = OcticonsGlyphMap[name];
         if (typeof glyph === "number") {
           glyph = String.fromCharCode(glyph);
         }
+        fontFamily = "Octicons";
 
-        return glyph;
+        return { glyph: glyph, family: fontFamily };
       case "SimpleLineIcons":
         glyph = SimpleLineIconsGlyphMap[name];
         if (typeof glyph === "number") {
           glyph = String.fromCharCode(glyph);
         }
 
-        return glyph;
+        if (Platform.OS === "ios") {
+          fontFamily = "simple-line-icons";
+        } else {
+          fontFamily = "SimpleLineIcons";
+        }
+
+        return { glyph: glyph, family: fontFamily };
       case "Zocial":
         glyph = ZocialGlyphMap[name];
         if (typeof glyph === "number") {
           glyph = String.fromCharCode(glyph);
         }
 
-        return glyph;
+        if (Platform.OS === "ios") {
+          fontFamily = "zocial";
+        } else {
+          fontFamily = "Zocial";
+        }
+
+        return { glyph: glyph, family: fontFamily };
     }
   }
 }
 
-export default RNVectorHelper
+export default RNVectorHelper;
