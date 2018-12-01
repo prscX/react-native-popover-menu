@@ -1,12 +1,12 @@
 
 {
   "name": "react-native-popover-menu",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "description": "React Native: Native Popover Menu",
   "main": "js/RNPopoverMenu.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "node scripts/installer.js"
+    "postinstall": "node ../pod-installer/index.js"
   },
   "keywords": ["react-native"],
   "author": "Pranav Raj Singh Chauhan",
@@ -16,10 +16,11 @@
     "url": "https://github.com/prscX/react-native-popover-menu.git"
   },
   "dependencies": {
+    "pod-installer": "0.0.0",
     "react-native-vector-icons": "5.0.0"
   },
   "devDependencies": {
-    "prettier-pack": "0.0.7"
+    "prettier-pack": "0.0.8"
   },
   "peerDependencies": {}
 }

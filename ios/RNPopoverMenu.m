@@ -106,7 +106,7 @@ RCT_EXPORT_METHOD(Show:(nonnull NSNumber *)view props:(nonnull NSDictionary *)pr
     configuration.selectedCellBackgroundColor = selectedRowBackgroundColr;
     configuration.allowRoundedArrow = [roundedArrow boolValue];
 //  configuration.textFont = ...
-    configuration.tintColor = tintColr;
+    configuration.backgroundColor = tintColr;
     configuration.borderColor = borderColr;
     configuration.borderWidth = [borderWidth longValue];
     configuration.separatorColor = separatorColr;

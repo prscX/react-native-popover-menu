@@ -1,6 +1,7 @@
 
 buildscript {
     repositories {
+        google()
         maven { url "https://maven.google.com" }
         jcenter()
     }
@@ -13,12 +14,12 @@ buildscript {
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
     buildToolsVersion '28.0.3'
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
     }
@@ -28,13 +29,13 @@ android {
 }
 
 repositories {
+    google()
     maven { url "https://maven.google.com" }
     mavenCentral()
 }
 
 dependencies {
-    implementation project(':react-native-vector-icons')
     implementation 'com.facebook.react:react-native:+'
-    implementation 'com.github.zawadz88.materialpopupmenu:material-popup-menu:1.4.1'
-    compile 'com.android.support:appcompat-v7:27.0.2'
+    implementation project(':react-native-vector-icons')
+    implementation 'com.github.zawadz88.materialpopupmenu:material-popup-menu:2.2.0'
 }
