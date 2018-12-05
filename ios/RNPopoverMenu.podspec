@@ -15,7 +15,7 @@ This library is a React Native bridge around native popover libraries. It allows
   s.author       = { "author" => "Pranav Raj Singh Chauhan" }
   s.platforms    = { ios: "7.0" }
   s.source       = { git: "https://github.com/author/RNPopoverMenu.git" }
-  s.source_files = "RNPopoverMenu.{h,m}"
+  s.source_files = "**/*.{h,m}"
   s.requires_arc = true
 
   s.dependency "React"
