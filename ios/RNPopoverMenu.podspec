@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
 This library is a React Native bridge around native popover libraries. It allows show/guide beautiful popover menus.
                    DESC
   s.homepage     = "https://github.com/prscX/react-native-popover-menu"
-  s.license      = { type: "MIT", file: "LICENSE" }
+  s.license      = { type: "MIT", file: "../LICENSE" }
   s.author       = { "author" => "Pranav Raj Singh Chauhan" }
   s.platforms    = { ios: "7.0" }
   s.source       = { git: "https://github.com/author/RNPopoverMenu.git" }
