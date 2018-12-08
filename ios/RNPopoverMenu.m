@@ -120,7 +120,7 @@ RCT_EXPORT_METHOD(Show:(nonnull NSNumber *)view props:(nonnull NSDictionary *)pr
 //    configuration.ignoreImageOriginalColor = ...;// set 'ignoreImageOriginalColor' to YES, images color will be same as textColor
 //    configuration.allowRoundedArrow = ...// Default is 'NO', if sets to 'YES', the arrow will be drawn with round corner.
 
-    [FTPopOverMenu showForSender:target withMenuArray:menuTitles imageArray:menuIcons doneBlock:^(NSInteger selectedIndex) {
+    [FTPopOverMenu showForSender:target withMenuArray:menuTitles imageArray:menuIcons configuration: configuration doneBlock:^(NSInteger selectedIndex) {
         onDone(@[[NSNumber numberWithLong: selectedIndex]]);
     } dismissBlock:^{
         onCancel(@[]);
