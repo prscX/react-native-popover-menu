@@ -72,9 +72,9 @@ allprojects {
 ```
 
 
-## **RN60 < RNAT V1 <**
+## **RN60 < RNPO V1 <**
 
-> RN60 below please use `react-native-app-tour` V.0.*
+> RN60 below please use `react-native-popover-menu` V.0.*
 
 `$ react-native link react-native-popover-menu`
 
