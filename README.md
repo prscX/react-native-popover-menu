@@ -33,6 +33,49 @@ This library is a React Native bridge around native popover libraries. It allows
 
 `$ npm install react-native-popover-menu --save`
 
+
+## **RN60 >= RNPM V1 >**
+
+> RN60 above please use `react-native-popover-menu` V1 and above
+
+- **iOS**
+
+> **iOS Prerequisite:** Please make sure `CocoaPods` is installed on your system
+
+	- Add the following to your `Podfile` -> `ios/Podfile` and run pod update:
+
+
+```
+  use_native_modules!
+
+  pod 'RNPopoverMenu', :path => '../node_modules/react-native-popover-menu/ios'
+
+  post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '9.0'
+      end
+    end
+  end
+```
+
+- **Android**
+
+Please add below snippet into your app `build.gradle`
+
+```
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+
+## **RN60 < RNAT V1 <**
+
+> RN60 below please use `react-native-app-tour` V.0.*
+
 `$ react-native link react-native-popover-menu`
 
 `$ react-native link react-native-vector-icons`
