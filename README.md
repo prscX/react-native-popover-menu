@@ -34,7 +34,7 @@ This library is a React Native bridge around native popover libraries. It allows
 `$ npm install react-native-popover-menu --save`
 
 
-## **RN60 >= RNPM V1 >**
+## **RN61 >= RNPM V1 >**
 
 > RN60 above please use `react-native-popover-menu` V1 and above
 
@@ -72,7 +72,7 @@ allprojects {
 ```
 
 
-## **RN60 < RNPO V1 <**
+## **RN61 < RNPO V1 <**
 
 > RN60 below please use `react-native-popover-menu` V.0.*
 
