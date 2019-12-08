@@ -117,7 +117,9 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
                       LinearLayout layout = (LinearLayout) o;
 
                       AppCompatImageView imageView = (AppCompatImageView) layout.findViewById(R.id.mpm_popup_menu_item_icon);
-                      imageView.setImageTintMode(PorterDuff.Mode.DST);
+                      if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                          imageView.setImageTintMode(PorterDuff.Mode.DST);
+                      }
 
                       TextView textView = (TextView) layout.findViewById(R.id.mpm_popup_menu_item_label);
 
@@ -141,7 +143,7 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
 
                   item.setViewBoundCallback(customItemLayout);
 
-                  final Function0 callback = new Function0() {
+                  final Function0 onDoneCallback = new Function0() {
                     @Override
                     public Object invoke() {
                       onDone.invoke(index, menuIndex);
@@ -150,7 +152,7 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
                     }
                   };
 
-                  item.setCallback(callback);
+                  item.setCallback(onDoneCallback);
 
                   return item;
                 }
@@ -174,6 +176,17 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
       public void run() {
         MaterialPopupMenu menu = popupMenuBuilder.build();
         menu.show(activity, viewGroup);
+
+        final Function0 onCancelCallback = new Function0() {
+          @Override
+          public Object invoke() {
+            onCancel.invoke();
+
+            return null;
+          }
+        };
+
+        menu.setOnDismissListener(onCancelCallback);
       }
     });
   }
