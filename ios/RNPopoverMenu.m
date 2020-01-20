@@ -90,7 +90,7 @@ RCT_EXPORT_METHOD(Show:(nonnull NSNumber *)view props:(nonnull NSDictionary *)pr
     }
 
     UIColor *shadowColr;
-    if ([separatorColor length] > 0) {
+    if ([shadowColor length] > 0) {
         shadowColr = [RNPopoverMenu colorFromHexCode: shadowColor];
     } else {
         shadowColr = [UIColor blackColor];
