@@ -161,6 +161,12 @@ class Popover extends PureComponent {
         selectedRowBackgroundColor: this.props.selectedRowBackgroundColor,
         menus: menus,
         theme: this.props.theme,
+        separatorColor: this.props.separatorColor,
+        shadowColor: this.props.shadowColor,
+        shadowOpacity: this.props.shadowOpacity,
+        shadowRadius: this.props.shadowRadius,
+        shadowOffsetX: this.props.shadowOffsetX,
+        shadowOffsetY: this.props.shadowOffsetY,
         onDone: this.props.onDone,
         onCancel: this.props.onCancel
       });
