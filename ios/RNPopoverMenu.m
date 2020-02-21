@@ -12,7 +12,7 @@
 RCT_EXPORT_MODULE()
 
 
-RCT_EXPORT_METHOD(Show:(nonnull NSNumber *)view props:(nonnull NSDictionary *)props onDone:(RCTResponseSenderBlock)onDone onCancel:(RCTResponseSenderBlock)onCancel) {
+RCT_EXPORT_METHOD(Show:(nonnull NSNumber *)view props:(nonnull NSDictionary *)props onDone:(RCTResponseSenderBlock)onDone) {
     UIViewController *vc = [UIApplication sharedApplication].delegate.window.rootViewController;
 
     UIView *target = [self.bridge.uiManager viewForReactTag: view];
@@ -123,9 +123,7 @@ RCT_EXPORT_METHOD(Show:(nonnull NSNumber *)view props:(nonnull NSDictionary *)pr
     [FTPopOverMenu showForSender:target withMenuArray:menuTitles imageArray:menuIcons configuration: configuration doneBlock:^(NSInteger selectedIndex) {
         onDone(@[[NSNumber numberWithLong: selectedIndex]]);
     } dismissBlock:^{
-        onCancel(@[]);
     }];
 }
 
 @end
-  

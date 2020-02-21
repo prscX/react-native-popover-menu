@@ -63,7 +63,7 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
 
   @TargetApi(21)
   @ReactMethod
-  public void Show(final int view, final ReadableMap props, final Callback onDone, final Callback onCancel) {
+  public void Show(final int view, final ReadableMap props, final Callback onDone) {
 
     final RNPopoverMenuModule me = this;
     final Activity activity = getCurrentActivity();
@@ -189,16 +189,16 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
         MaterialPopupMenu menu = popupMenuBuilder.build();
         menu.show(activity, viewGroup);
 
-        final Function0 onCancelCallback = new Function0() {
-          @Override
-          public Object invoke() {
-            onCancel.invoke();
+        // final Function0 onCancelCallback = new Function0() {
+        //   @Override
+        //   public Object invoke() {
+        //     onCancel.invoke();
 
-            return null;
-          }
-        };
+        //     return null;
+        //   }
+        // };
 
-        menu.setOnDismissListener(onCancelCallback);
+        // menu.setOnDismissListener(onCancelCallback);
       }
     });
   }

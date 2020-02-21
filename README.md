@@ -218,8 +218,7 @@ let menus = [
 RNPopoverMenu.Show(this.ref, {
   title: "",
   menus: menus,
-  onDone: selection => { },
-  onCancel: () => { }
+  onDone: selection => { }
 });
 
 ```
@@ -237,7 +236,6 @@ RNPopoverMenu.Show(this.ref, {
 | `title`       | `string`     |         | Title of popover section
 | `menus` | `array` |         | Array of Menus                                                   |  |
 | `onDone(sectionSelection, menuSelection)`    | `func`     |         | It is called when menu is selected                                        |  |
-| `onCancel`      | `func`     |         | It is called when we close the popover
 
 
 - **Props: Android**

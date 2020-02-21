@@ -26,7 +26,6 @@ class Popover extends PureComponent {
     roundedArrow: PropTypes.bool,
     menus: PropTypes.array,
     onDone: PropTypes.func,
-    onCancel: PropTypes.func,
     reference: PropTypes.object,
     theme: PropTypes.string,
     shadowColor: PropTypes.string,
@@ -111,9 +110,6 @@ class Popover extends PureComponent {
       { ...props },
       (index, menuIndex) => {
         props.onDone && props.onDone(index, menuIndex);
-      },
-      () => {
-        props.onCancel && props.onCancel();
       }
     );
   }
@@ -167,8 +163,7 @@ class Popover extends PureComponent {
         shadowRadius: this.props.shadowRadius,
         shadowOffsetX: this.props.shadowOffsetX,
         shadowOffsetY: this.props.shadowOffsetY,
-        onDone: this.props.onDone,
-        onCancel: this.props.onCancel
+        onDone: this.props.onDone
       });
     }
   }
