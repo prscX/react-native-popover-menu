@@ -39,6 +39,10 @@ This library is a React Native bridge around native popover libraries. It allows
 
 `$ npm install react-native-image-helper --save`
 
+- Add `react-native-vector-icons` to your app package.json and configure it as per their installation steps
+
+`$ npm install react-native-vector-icons --save`
+
 
 - **iOS**
 

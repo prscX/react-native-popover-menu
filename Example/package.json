@@ -13,8 +13,8 @@
     "react": "16.9.0",
     "react-native": "0.61.1",
     "react-native-vector-icons": "6.6.0",
-    "react-native-popover-menu": "../",
-    "react-native-image-helper": "0.0.2"
+    "react-native-image-helper": "0.0.2",
+    "react-native-popover-menu": "../"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",

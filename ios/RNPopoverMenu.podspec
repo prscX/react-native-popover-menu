@@ -20,4 +20,5 @@ This library is a React Native bridge around native popover libraries. It allows
 
   s.dependency 'React'
   s.dependency 'FTPopOverMenu', '~> 2.0.9'
+  s.dependency 'RNImageHelper'
 end
