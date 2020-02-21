@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import { findNodeHandle, ViewPropTypes, NativeModules } from "react-native";
 import PropTypes from "prop-types";
 
-import RNVectorHelper from './RNVectorHelper'
+import RNImageHelper from "react-native-image-helper"
 
 import { Menu } from "./Menu";
 
@@ -74,7 +74,7 @@ class Popover extends PureComponent {
             if (subMenu.icon && subMenu.icon.props) {
               subMenu.icon = subMenu.icon.props;
 
-              let vectorIcon = RNVectorHelper.Resolve(
+              let vectorIcon = RNImageHelper.Resolve(
                 subMenu.icon.family,
                 subMenu.icon.name
               );
@@ -93,7 +93,7 @@ class Popover extends PureComponent {
         if (menu.icon && menu.icon.props) {
           menu.icon = menu.icon.props;
 
-          let vectorIcon = RNVectorHelper.Resolve(menu.icon.family, menu.icon.name);
+          let vectorIcon = RNImageHelper.Resolve(menu.icon.family, menu.icon.name);
           menu.icon = Object.assign({}, menu.icon, vectorIcon);
         } else if (menu.icon !== undefined) {
           menu.icon = {

@@ -54,44 +54,44 @@ RCT_EXPORT_METHOD(Show:(nonnull NSNumber *)view props:(nonnull NSDictionary *)pr
                 continue;
             }
             
-            [menuIcons addObject: [self generateVectorIcon: icon]];
+            [menuIcons addObject: [RNImageHelper GenerateImage: icon]];
         }
     }
     
     UIColor *tintColr;
     if ([tintColor length] > 0) {
-        tintColr = [RNPopoverMenu colorFromHexCode: tintColor];
+        tintColr = [RNImageHelper ColorFromHexCode: tintColor];
     } else {
         tintColr = [UIColor clearColor];
     }
 
     UIColor *textColr;
     if ([textColor length] > 0) {
-        textColr = [RNPopoverMenu colorFromHexCode: textColor];
+        textColr = [RNImageHelper ColorFromHexCode: textColor];
     }
 
     UIColor *selectedRowBackgroundColr;
     if ([selectedRowBackgroundColor length] > 0) {
-        selectedRowBackgroundColr = [RNPopoverMenu colorFromHexCode: selectedRowBackgroundColor];
+        selectedRowBackgroundColr = [RNImageHelper ColorFromHexCode: selectedRowBackgroundColor];
     }
     
     UIColor *borderColr;
     if ([borderColor length] > 0) {
-        borderColr = [RNPopoverMenu colorFromHexCode: borderColor];
+        borderColr = [RNImageHelper ColorFromHexCode: borderColor];
     } else {
         borderColr = [UIColor clearColor];
     }
 
     UIColor *separatorColr;
     if ([separatorColor length] > 0) {
-        separatorColr = [RNPopoverMenu colorFromHexCode: separatorColor];
+        separatorColr = [RNImageHelper ColorFromHexCode: separatorColor];
     } else {
         separatorColr = [UIColor grayColor];
     }
 
     UIColor *shadowColr;
     if ([shadowColor length] > 0) {
-        shadowColr = [RNPopoverMenu colorFromHexCode: shadowColor];
+        shadowColr = [RNImageHelper ColorFromHexCode: shadowColor];
     } else {
         shadowColr = [UIColor blackColor];
     }
@@ -125,61 +125,6 @@ RCT_EXPORT_METHOD(Show:(nonnull NSNumber *)view props:(nonnull NSDictionary *)pr
     } dismissBlock:^{
         onCancel(@[]);
     }];
-}
-
-- (UIImage *) generateVectorIcon: (NSDictionary *) icon {
-    NSString *family = [icon objectForKey: @"family"];
-    NSString *name = [icon objectForKey: @"name"];
-    NSString *glyph = [icon objectForKey: @"glyph"];
-    NSNumber *size = [icon objectForKey: @"size"];
-    NSString *color = [icon objectForKey: @"color"];
-
-    if (name != nil && [name length] > 0 && [name containsString: @"."]) {
-        return [UIImage imageNamed: name];
-    }
-    
-    UIColor *uiColor = [RNPopoverMenu colorFromHexCode: color];
-    CGFloat screenScale = RCTScreenScale();
-    
-    UIFont *font = [UIFont fontWithName:family size:[size floatValue]];
-    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:glyph attributes:@{NSFontAttributeName: font, NSForegroundColorAttributeName: uiColor}];
-    
-    CGSize iconSize = [attributedString size];
-    UIGraphicsBeginImageContextWithOptions(iconSize, NO, 0.0);
-    [attributedString drawAtPoint:CGPointMake(0, 0)];
-    
-    UIImage *iconImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return iconImage;
-}
-
-- (UIImage *) generateAssetsIcon {
-    return nil;
-}
-
-
-+ (UIColor *) colorFromHexCode:(NSString *)hexString {
-    NSString *cleanString = [hexString stringByReplacingOccurrencesOfString:@"#" withString:@""];
-    if([cleanString length] == 3) {
-        cleanString = [NSString stringWithFormat:@"%@%@%@%@%@%@",
-                       [cleanString substringWithRange:NSMakeRange(0, 1)],[cleanString substringWithRange:NSMakeRange(0, 1)],
-                       [cleanString substringWithRange:NSMakeRange(1, 1)],[cleanString substringWithRange:NSMakeRange(1, 1)],
-                       [cleanString substringWithRange:NSMakeRange(2, 1)],[cleanString substringWithRange:NSMakeRange(2, 1)]];
-    }
-    if([cleanString length] == 6) {
-        cleanString = [cleanString stringByAppendingString:@"ff"];
-    }
-    
-    unsigned int baseValue;
-    [[NSScanner scannerWithString:cleanString] scanHexInt:&baseValue];
-    
-    float red = ((baseValue >> 24) & 0xFF)/255.0f;
-    float green = ((baseValue >> 16) & 0xFF)/255.0f;
-    float blue = ((baseValue >> 8) & 0xFF)/255.0f;
-    float alpha = ((baseValue >> 0) & 0xFF)/255.0f;
-    
-    return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
 }
 
 @end
