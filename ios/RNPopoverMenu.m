@@ -32,6 +32,9 @@ RCT_EXPORT_METHOD(Show:(nonnull NSNumber *)view props:(nonnull NSDictionary *)pr
     NSNumber *shadowRadius = [props objectForKey: @"shadowRadius"];
     NSNumber *shadowOffsetX = [props objectForKey: @"shadowOffsetX"];
     NSNumber *shadowOffsetY = [props objectForKey: @"shadowOffsetY"];
+
+    NSString *textFontName = [props objectForKey: @"textFontName"];
+    NSNumber *textFontSize = [props objectForKey: @"textFontSize"];
     
     NSNumber *menuWidth = [props objectForKey: @"menuWidth"];
     NSNumber *rowHeight = [props objectForKey: @"rowHeight"];
@@ -95,7 +98,25 @@ RCT_EXPORT_METHOD(Show:(nonnull NSNumber *)view props:(nonnull NSDictionary *)pr
     } else {
         shadowColr = [UIColor blackColor];
     }
-    
+
+    UIFont *textFont;
+
+    if ([textFontName length] > 0) {
+        if ([textFontSize floatValue] > 0) {
+            textFont = [UIFont fontWithName:textFontName size:[textFontSize floatValue]];
+        }
+        else {
+            textFont = [UIFont fontWithName:textFontName size:14.f];
+        }
+    }
+    else {
+        if ([textFontSize floatValue] > 0) {
+            textFont = [UIFont systemFontOfSize:[textFontSize floatValue]];
+        }
+        else {
+            textFont = [UIFont systemFontOfSize:14.f];
+        }
+    }
 
     FTPopOverMenuConfiguration *configuration = [FTPopOverMenuConfiguration defaultConfiguration];
     configuration.menuRowHeight = [rowHeight longValue];
@@ -105,7 +126,7 @@ RCT_EXPORT_METHOD(Show:(nonnull NSNumber *)view props:(nonnull NSDictionary *)pr
     configuration.menuIconMargin = [iconMargin longValue];
     configuration.selectedCellBackgroundColor = selectedRowBackgroundColr;
     configuration.allowRoundedArrow = [roundedArrow boolValue];
-//  configuration.textFont = ...
+    configuration.textFont = textFont;
     configuration.backgroundColor = tintColr;
     configuration.borderColor = borderColr;
     configuration.borderWidth = [borderWidth longValue];
