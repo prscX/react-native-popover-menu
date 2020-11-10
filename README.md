@@ -163,7 +163,7 @@ dependencies {
 ## 💻 Usage
 
 ```javascript
-import RNPopoverMenu from 'react-native-popover-menu';
+import RNPopover from 'react-native-popover-menu';
 
 import Icon from 'react-native-vector-icons'
 
@@ -219,7 +219,7 @@ let menus = [
   }
 ]
 
-RNPopoverMenu.Show(this.ref, {
+RNPopover.Show(this.ref, {
   title: "",
   menus: menus,
   onDone: selection => { }
