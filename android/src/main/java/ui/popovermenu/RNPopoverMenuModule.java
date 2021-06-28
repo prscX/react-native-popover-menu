@@ -80,7 +80,7 @@ public class RNPopoverMenuModule extends ReactContextBaseJavaModule {
     final MaterialPopupMenuBuilder popupMenuBuilder = new MaterialPopupMenuBuilder();
 
     if (props.getString("theme").equalsIgnoreCase("dark")) {
-      popupMenuBuilder.setStyle(R.style.Widget_MPM_Menu_Dark);
+      popupMenuBuilder.setStyle(R.style.Widget_MPM_Menu_Dark_CustomBackground);
     }
 
     for (int i = 0; i < menus.size(); i++) {

@@ -1,0 +1,5 @@
+<resources>
+    <style name="Widget.MPM.Menu.Dark.CustomBackground">
+        <item name="android:colorBackground">#10052F</item>
+    </style>
+</resources>
