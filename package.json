@@ -1,7 +1,7 @@
 
 {
   "name": "react-native-popover-menu",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "React Native: Native Popover Menu",
   "main": "js/RNPopoverMenu.js",
   "scripts": {
@@ -17,7 +17,7 @@
   "dependencies": {
   },
   "devDependencies": {
-    "prettier-pack": "0.0.8"
+    "prettier-pack": "0.0.11"
   },
   "peerDependencies": {}
 }

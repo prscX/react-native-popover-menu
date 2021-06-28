@@ -13,7 +13,7 @@ buildscript {
         }
 
         dependencies {
-            classpath("com.android.tools.build:gradle:3.5.3")
+            classpath('com.android.tools.build:gradle:4.2.1')
         }
     }
 }
@@ -44,5 +44,5 @@ repositories {
 dependencies {
     implementation 'com.facebook.react:react-native:+'
     implementation project(':react-native-vector-icons')
-    implementation 'com.github.zawadz88.materialpopupmenu:material-popup-menu:4.0.1'
+    implementation 'com.github.zawadz88.materialpopupmenu:material-popup-menu:4.1.0'
 }

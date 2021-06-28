@@ -18,7 +18,7 @@ This library is a React Native bridge around native popover libraries. It allows
   s.source_files = "**/*.{h,m}"
   s.requires_arc = true
 
-  s.dependency 'React'
+  s.dependency 'React-Core'
   s.dependency 'FTPopOverMenu', '~> 2.1.1'
   s.dependency 'RNImageHelper'
 end
