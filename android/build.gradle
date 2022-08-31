@@ -44,5 +44,5 @@ repositories {
 dependencies {
     implementation 'com.facebook.react:react-native:+'
     implementation project(':react-native-vector-icons')
-    implementation 'com.github.zawadz88.materialpopupmenu:material-popup-menu:4.1.0'
+    implementation 'com.github.zawadz88:MaterialPopupMenu:4.1.0'
 }
